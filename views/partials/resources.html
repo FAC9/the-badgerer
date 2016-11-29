@@ -1,0 +1,16 @@
+<table class="resource-table">
+  <tr class="resource-table__row resource-table__row-header">
+    <th class="resource-table__header">Resource</th>
+    <th class="resource-table__header">Type</th>
+    <th class="resource-table__header">Number of reviews</th>
+    <th class="resource-table__header">Average user rating</th>
+  </tr>
+  {{#each resources}}
+  <tr class="resource-table__row">
+    <td class="resource-table__cell resource-table__resource"><a href="/resource/{{this.resource_id}}" title="{{this.resource}}">{{this.resource}}</a></td>
+    <td class="resource-table__cell resource-table__type"><a href="/resource/{{this.resource_id}}" title="{{this.resource}}">{{this.type}}</a></td>
+    <td class="resource-table__cell resource-table__reviews"><a href="/resource/{{this.resource_id}}" title="{{this.resource}}">{{this.reviews}}</a></td>
+    <td class="resource-table__cell resource-table__rating"><a href="/resource/{{this.resource_id}}" title="{{this.resource}}">{{this.rating}}</a></td>
+  </tr>
+  {{/each}}
+</table>
