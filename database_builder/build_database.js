@@ -4,7 +4,8 @@ const fs = require('fs');
 console.log(process.env.DB_URL);
 const dbConn = require('./dbconnection.js');
 
-const sql = fs.readFileSync(`${__dirname}/build_database.sql`);
+console.log(dbConn);
+const sql = fs.readFileSync(`${__dirname}/build_database.sql`).toString();
 
 dbConn.query(sql,(error,result)=>{
   (error
