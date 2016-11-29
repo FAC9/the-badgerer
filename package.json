@@ -1,0 +1,32 @@
+{
+  "name": "the-badgerer",
+  "version": "1.0.0",
+  "description": "a sql based review site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAC9/the-badgerer.git"
+  },
+  "author": "Nick Nori Emily John",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FAC9/the-badgerer/issues"
+  },
+  "homepage": "https://github.com/FAC9/the-badgerer#readme",
+  "dependencies": {
+    "hapi": "^15.2.0",
+    "inert": "^4.0.3",
+    "joi": "^10.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-config-semistandard": "^7.0.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.7.1",
+    "eslint-plugin-standard": "^2.0.1"
+  }
+}
