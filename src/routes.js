@@ -6,15 +6,16 @@ const login = {
   config: {
     handler: function (request, reply) {
       var message;
-      if (request.method === 'POST') {
+      console.log(request.method);
+      if (request.method == 'post') {
         const username = request.payload.username;
         const password = request.payload.password;
         if (!username || !password) {
           message = 'Missing username or password';
         }
-
-        /* console.log(username, password);
-        sqlLogin((err, data) => {
+        console.log(message);
+        console.log(username, password);
+        /* sqlLogin((err, data) => {
           console.log('called sql');
           if (err) { throw err; }
           console.log(data);
@@ -27,8 +28,7 @@ const login = {
           reply('logged in'); // this should serve home page/ success page
         } */
       }
-      if (request.method === 'get' ||
-       message) {
+      if (request.method === 'get' || message) {
         return reply('<html><head><title>Login page</title></head><body>' +
            (message ? '<h3>' + message + '</h3><br/>' : '') +
            '<form method="post" action="/login">' +
