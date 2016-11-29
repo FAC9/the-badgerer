@@ -5,6 +5,9 @@ const login = {
   path: '/login',
   config: {
     handler: function (request, reply) {
+      function correct () {
+        console.log("I'm a function");
+      }
       let message;
       console.log(request.method);
       if (request.method === 'post') {
@@ -15,12 +18,14 @@ const login = {
         }
         var user;
         sqlLogin((err, data) => {
+          var message = '';
           console.log('called sql');
           if (err) { throw err; }
-          console.log(data);
-          console.log(data[0].username);
-          user = data[0];
-          console.log(user);
+          if (data.length) user = data[0].username;
+          if (!user) {
+            message = 'User does not exist';
+            return reply.view('login.html', { message });
+          }
         }, username);
 
         /* let user = '';
