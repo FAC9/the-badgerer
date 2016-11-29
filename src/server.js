@@ -18,6 +18,13 @@ server.connection({
 
 server.register([Vision, Inert, CookieAuth], (err) => {
   if (err) { throw err; }
+  server.views({
+    engines: {
+      html: require('handlebars')
+    },
+    relativeTo: __dirname,
+    path: '../views'
+  });
 
   server.auth.strategy('base', 'cookie', options);
   server.route(Routes);
