@@ -1,4 +1,5 @@
 var Bcrypt = require('bcrypt');
+const cookieAuth = require('hapi-auth-cookie');
 var SALT_WORK_FACTOR = 10;
 var pass = 'test_password';
 
@@ -25,3 +26,15 @@ Bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
 
         });
 })
+// ---------------------------------------
+// simplified
+
+let password = 'whatever'
+
+var hash = Bcrypt.hashSync(`${password}`, 10);
+
+
+let one = Bcrypt.compareSync("whatever", hash); // true
+let two = Bcrypt.compareSync("everwhat", hash); // false
+
+console.log('one: ', one, 'two: ', two);
