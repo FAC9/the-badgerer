@@ -1,0 +1,25 @@
+<nav class='nav'>{{> header}}</nav>
+<div class="resource-profile">
+  <img class="resource-profile__image" src='{{image_url}}' />
+  <h1 class="resource-profile__header">{{resource_name}}</h1>
+  <h3 class="resource-profile__type">{{type}}</h3>
+  <h3 class="resource-profile__rating">Overall Rating: {{rating}}</h3>
+  <div class='reviews-container'>{{> reviews}}</div>
+  {{#if loggedIn}}
+    <form class="edit-form" method="POST" action="/submit/{{review_id}}">
+      <label class="edit-form__text-label" for="review_content">Review: </label>
+        <textarea class="edit-form__text" id="review_content" name="review_content"></textarea>
+      <label class="edit-form__rating-label" for="rating">Rating: </label>
+        <select class="edit-form__rating-select" id="rating" name="rating">
+          <option class="edit-form__rating-option" value="1">Terrible</option>
+          <option class="edit-form__rating-option" value="2">Poor</option>
+          <option class="edit-form__rating-option" value="3">Average</option>
+          <option class="edit-form__rating-option" value="4">Good</option>
+          <option class="edit-form__rating-option" value="5">Great!</option>
+        </select>
+      <input class="edit-form__submit" type="submit" />
+    </form>
+  {{else}}
+    <h4>Log in to submit a review</h4>
+  {{/if}}
+</div>
