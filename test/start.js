@@ -4,6 +4,6 @@ server.inject({
   method: 'POST',
   url: '/login',
   payload: 'username=hello'
-}, (res) => {
+}, (req, res) => {
   console.log(res.statusCode);
 });
