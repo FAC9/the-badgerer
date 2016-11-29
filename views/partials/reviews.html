@@ -13,7 +13,7 @@
     <li class="review__item review__date">{{this.creation_date}}</li>
     <li class="review__item review__body">{{this.review_content}}</li>
 
-    {{#if canEdit }}
+    {{#if this.canEdit }}
     <li class="review__item review__edit"><a href="/edit/{{this.review_id}}">Edit</a></li>
     <li class="review__item review__delete"><a href="/delete/{{this.review_id}}">Delete</a></li>
     {{/if}}
