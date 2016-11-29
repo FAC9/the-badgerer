@@ -2,9 +2,9 @@
 <h3 class='edit-subtitle'>{{review_id}}</h3>
 <form class="edit-form" method="POST" action="/edit/{{review_id}}">
   <label class="edit-form__text-label" for="review_content">Review: </label>
-    <textarea class="edit-form__text" id="review_content" name="review_content"></textarea>
+    <textarea class="edit-form__text" id="review_content" name="review_content" value="{{review_content}}"></textarea>
   <label class="edit-form__rating-label" for="rating">Rating: </label>
-    <select class="edit-form__rating-select" id="rating" name="rating">
+    <select class="edit-form__rating-select" id="rating" name="rating" value="{{rating}}">
       <option class="edit-form__rating-option" value="1">Terrible</option>
       <option class="edit-form__rating-option" value="2">Poor</option>
       <option class="edit-form__rating-option" value="3">Average</option>
