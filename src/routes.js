@@ -15,7 +15,7 @@ const login = {
       }, username);
 
       let user = '';
-      console.log('hello')
+      console.log('hello');
       if (user) {
         req.cookieAuth.set(user);
         reply('logged in'); // this should serve home page/ success page
@@ -24,6 +24,17 @@ const login = {
   }
 };
 
+const logout = {
+  method: 'GET',
+  path: '/logout',
+  config: {
+    handler: function (request, reply) {
+      request.cookieAuth.clear();
+      return reply.redirect('/home');
+    }
+  }
+};
+
 module.exports = [
-  login
+  login, logout
 ];
