@@ -15,7 +15,13 @@ Focus on getting this functionality rather than making the frontend look good. B
 
 ## Layout
 
-### Header
+### Layout.html:
+
+- Site Title & Footer
+
+## Partials
+
+### Header.html:
 
 - If (not logged in), Login Button (when clicking on login button, hapi form appears to login).
 - If (logged in), user pic/name - when clicking on pic/name goes to user profile view.
@@ -23,12 +29,12 @@ Focus on getting this functionality rather than making the frontend look good. B
 
 ## Views
 
-### Home:
+### Home.html:
 
 - Top 5 Resources (clicking on resource name goes to resource profile view)
 - Latest 5 reviews (clicking on review snippet expands it, clicking on user name goes to user profile view, clicking on resource name goes to resource profile view).
 
-### User Profile:
+### UserProfile.html:
 
 - User Pic.
 - User Name.
@@ -36,7 +42,7 @@ Focus on getting this functionality rather than making the frontend look good. B
 - User reviews (clicking on review snippet expands it).
 - If (logged in), user reviews will have edit/delete buttons next to them. If edit button clicked, goes to Edit View for that review. If delete button clicked, confirm popup appears ('Are you sure you want to delete this?'), if (Yes) User Profile view reloads, if (No) popup disapears without changes.
 
-### Resources:
+### Resources.html:
 
 - List of resources.
 - For each resource, you can see Name, Type (online tutorial PAID/ online tutorial FREE/ offline course PAID/ offline course FREE/ book/ blog), Number of Reviews, average rating.
