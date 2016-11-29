@@ -5,23 +5,25 @@ const login = {
   path: '/login',
   config: {
     handler: function (request, reply) {
-      var message;
+      let message;
       console.log(request.method);
-      if (request.method == 'post') {
+      if (request.method === 'post') {
         const username = request.payload.username;
         const password = request.payload.password;
         if (!username || !password) {
           message = 'Missing username or password';
         }
-        console.log(message);
-        console.log(username, password);
-        /* sqlLogin((err, data) => {
+        var user;
+        sqlLogin((err, data) => {
           console.log('called sql');
           if (err) { throw err; }
           console.log(data);
+          console.log(data[0].username);
+          user = data[0];
+          console.log(user);
         }, username);
 
-        let user = '';
+        /* let user = '';
         console.log('hello');
         if (user) {
           req.cookieAuth.set(user);
