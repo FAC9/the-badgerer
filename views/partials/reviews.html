@@ -1,17 +1,22 @@
-<table class="review-table">
-  <tr class="review-table__row review-table__row-header">
-    <th class="review-table__header">Resource</th>
-    <th class="review-table__header">User</th>
-    <th class="review-table__header">Date</th>
-    <th class="review-table__header">Rating</th>
-    <th class="review-table__header">Snippet</th>
-  </tr>
+<div class="review-container">
+  <h3>Reviews</h3>
   {{#each reviews}}
-  <tr class="review-table__row">
-    <td class="review-table__cell review-table__review"><a href="/review/{{this.resource_id}}" title="{{this.resource}}">{{this.resource}}</a></td>
-    <td class="review-table__cell review-table__type"><a href="/review/{{this.user_id}}" title="{{this.user}}">{{this.user}}</a></td>
-    <td class="review-table__cell review-table__date">{{this.date}}</td>
-    <td class="review-table__cell review-table__rating">{{this.rating}}</td>
-  </tr>
+  <ul class="review">
+    {{#if this.resource }}
+    <li class="review__item review__resource"><a href="/resource/{{this.resource_id}}">{{this.resource}}</a></li>
+    {{/if}}
+
+    {{#if this.user }}
+    <li class="review__item review__user"><a href="/user/{{this.user_id}}">{{this.user}}</a></li>
+    {{/if}}
+
+    <li class="review__item review__date">{{this.creation_date}}</li>
+    <li class="review__item review__body">{{this.review_content}}</li>
+
+    {{#if this.canEdit }}
+    <li class="review__item review__edit"><a href="/edit/{{this.review_id}}">Edit</a></li>
+    <li class="review__item review__delete"><a href="/delete/{{this.review_id}}">Delete</a></li>
+    {{/if}}
+  </ul>
   {{/each}}
-</table>
+</div>

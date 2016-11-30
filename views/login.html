@@ -1,1 +1,10 @@
-login {{message}}
+<h1 class='login-header'>Login</h1>
+<h3 class='login-warning'>{{message}}</h3>
+<form class="login-form" method="POST" action="/login">
+  <label class="login-form__username-label" for="username">Username:</label>
+  <input class="login-form__username-input" type="text" id="username" name="username" placeholder="Enter your username" required/>
+  <label class="login-form__password-label" for="username">Password:</label>
+  <input class="login-form__password-input" type="text" id="password" name="username" placeholder="Enter your password" required/>
+  <input class="login-form__submit" type="submit" />
+</form>
+<a class="login-back" href="/home">Back</a>
