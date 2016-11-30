@@ -3,13 +3,13 @@
   {{#each reviews}}
   <ul class="review">
     {{#if ../fromUserProfile }}
-    <li class="review__item review__resource"><a href="/resource/{{this.resource_id}}">{{this.resource_name}}</a></li>
+    <li class="review__item review__resource"><a href="/resource?resource_id={{this.resource_id}}">{{this.resource_name}}</a></li>
 
     {{else if ../fromResourceProfile }}
     <li class="review__item review__user"><a href="/user/{{this.user_id}}">{{this.username}}</a></li>
 
     {{else}}
-    <li class="review__item review__resource"><a href="/resource/{{this.resource_id}}">{{this.resource_name}}</a></li>
+    <li class="review__item review__resource"><a href="/resource?resource_id={{this.resource_id}}">{{this.resource_name}}</a></li>
     <li class="review__item review__user"><a href="/user/{{this.user_id}}">{{this.username}}</a></li>
     {{/if}}
 
