@@ -1,20 +1,17 @@
 const sqlTop5 = require('../dbrequests/top5resources.js');
+const sqlRec5 = require('../dbrequests/recent5reviews.js');
 
 const homeHandler = (req, rep) => {
   sqlTop5((err, data) => {
     let testObj = {};
     if (err) throw err;
     testObj.resources = data;
-    testObj.reviews = [{
-      resource_id: '304390034',
-      resource: 'some resource',
-      user: 'nick field',
-      user_id: '666',
-      creation_date: '10/10/1987',
-      review_content: 'I love resources. They are great.',
-      canEdit: true
-    }];
-    rep.view('home', testObj);
+    sqlRec5((err, data) => {
+      if (err) throw err;
+      testObj.reviews = data;
+      testObj.reviews.canEdit = true;
+      rep.view('home', testObj);
+    });
   }); // end of callback
 };
 

@@ -5,6 +5,7 @@ module.exports = (cb, username) => {
                   reviews.resource_id,
                   resource_name,
                   modified_date,
+                  reviews.creation_date,
                   review_content,
                   rating,
                   reviews.user_id,
