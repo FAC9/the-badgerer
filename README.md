@@ -2,6 +2,17 @@
 
 Description: A platform for writing and sharing reviews of coding resources. 
 
+## Route names:
+- / - (home)
+- /user/{user_id}
+- /resources (with query for sortby)
+- /resource/{resource_id}
+- /login
+- /logout
+- /edit/{review_id}
+- /delete/{review_id}
+- /submit (payload of post)
+
 ## User stories:
 
 - I can log in.
