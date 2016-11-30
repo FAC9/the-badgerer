@@ -7,9 +7,11 @@ const Routes = require('./routes.js');
 const server = new Hapi.Server();
 
 const options = {
-  password: 'something',
+  password: 'somebn,..........kjhkljhkb,bn,bnjmbjhthing',
   cookie: 'somecookie',
-  ttl: 24 * 60 * 60 * 1000
+  ttl: 24 * 60 * 60 * 1000,
+  isSecure: false,
+  isHttpOnly: false
 };  // make this :)
 
 server.connection({
