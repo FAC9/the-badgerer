@@ -14,7 +14,7 @@ const logout = {
   config: {
     handler: function (request, reply) {
       request.cookieAuth.clear();
-      return reply.redirect('/home');
+      return reply.redirect('/');
     }
   }
 };
@@ -60,17 +60,11 @@ const SecureHome = {
     handler: (req, rep) => {
       let data = {};
       if (req.auth.isAuthenticated) {
-        // make completel sql check
-        let user = req.auth.credentials.current_user;
-        let id = req.auth.credentials.current_user_id;
         data.loggedIn = true;
-        data.current_user = user;
-        data.current_user_id = id;
-        rep.view('home', data);
-      } else {
-        // make incomplete sql check
-        rep.view('home', data);
+        data.current_user = req.auth.credentials.current_user;
+        data.current_user_id = req.auth.credentials.current_user_id;
       }
+      rep.view('home', data);
     }
   }
 };
