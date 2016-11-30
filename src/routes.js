@@ -27,8 +27,8 @@ const home = {
     let testObj = {};
     sqlTop5((err, data) => {
       if (err) throw err;
+      console.log(data.length);
       testObj.resources = data;
-      console.log(testObj);
       testObj.reviews = [{
         resouce_id: '304390034',
         resource: 'some resource',
@@ -39,7 +39,7 @@ const home = {
         canEdit: true
       }];
       rep.view('home', { testObj });
-    });
+    }); // end of callback
   }
 };
 
