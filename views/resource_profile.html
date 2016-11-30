@@ -6,7 +6,7 @@
   <h3 class="resource-profile__rating">Overall Rating: {{rating}}</h3>
   <div class='reviews-container'>{{> reviews fromResourceProfile=true}}</div>
   {{#if loggedIn}}
-    <form class="edit-form" method="POST" action="/submit/{{resource_id}}">
+    <form class="edit-form" method="POST" action="/addreview/{{resource_id}}">
       <label class="edit-form__text-label" for="review_content">Review: </label>
         <textarea class="edit-form__text" id="review_content" name="review_content"></textarea>
       <label class="edit-form__rating-label" for="rating">Rating: </label>
