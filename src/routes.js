@@ -54,8 +54,6 @@ const resourceProfile = {
   }
 };
 
-
-
 module.exports = [
   login, logout, SecureHome, resource, resourceProfile
 ];
