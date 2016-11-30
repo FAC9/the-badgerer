@@ -2,10 +2,10 @@ const sqlTop5 = require('../dbrequests/top5resources.js');
 
 const homeHandler = (req, rep) => {
   sqlTop5((err, data) => {
-    let testObj = {};
+    let obj = {};
     if (err) throw err;
-    testObj.resources = data;
-    testObj.reviews = [{
+    obj.resources = data;
+    obj.reviews = [{
       resource_id: '304390034',
       resource: 'some resource',
       user: 'nick field',
@@ -14,7 +14,12 @@ const homeHandler = (req, rep) => {
       review_content: 'I love resources. They are great.',
       canEdit: true
     }];
-    rep.view('home', testObj);
+    if (req.auth.isAuthenticated) {
+      obj.current_user = req.auth.credentials.current_user;
+      obj.current_user_id = req.auth.credentials.current_user_id;
+      obj.loggedIn = true;
+    }
+    rep.view('home', obj);
   }); // end of callback
 };
 
