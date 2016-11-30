@@ -61,7 +61,7 @@ CREATE TABLE categories (
   category_name            VARCHAR(100)   UNIQUE NOT NULL
 );
 
-INSERT INTO  categories (category_name) VALUES('badger');
+INSERT INTO  categories (category_name) VALUES('book');
 
 
 COMMIT;
