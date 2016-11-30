@@ -14,6 +14,11 @@ const homeHandler = (req, rep) => {
       review_content: 'I love resources. They are great.',
       canEdit: true
     }];
+    if (req.auth.isAuthenticated) {
+      testObj.current_user = req.auth.credentials.current_user;
+      testObj.current_user_id = req.auth.credentials.current_user_id;
+      testObj.loggedIn = true;
+    }
     rep.view('home', testObj);
   }); // end of callback
 };
