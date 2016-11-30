@@ -17,7 +17,7 @@ const loginHandler = function (request, reply) {
         Bcrypt.compare(password, data.password, function (err, isMatch) {
           if (err) { throw (err); }
           if (isMatch) {
-            request.cookieAuth.set({ current_user: data.user_id }); // set cookie, our user is the entire object returned from the db
+            request.cookieAuth.set({ current_user: data.username, current_user_id: data.user_id }); // set cookie, our user is the entire object returned from the db
             reply.redirect('/');
           } else {
             reply.view('login.html', { message: 'Wrong password' });
