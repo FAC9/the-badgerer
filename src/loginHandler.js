@@ -25,9 +25,7 @@ const loginHandler = function (request, reply) {
           }
           if (isMatch) {
             message = 'You are logged in!';
-            var obj = {name: 'Emily'};
-            request.cookieAuth.set(obj); // set cookie, our user is the entire object returned from the db
-            console.log(request.auth.credentials);
+            request.cookieAuth.set({ id: user.user_id }); // set cookie, our user is the entire object returned from the db
             return reply.view('login', { message });
           } else {
             message = 'Wrong password';
