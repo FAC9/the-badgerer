@@ -4,7 +4,7 @@
   <h1 class="resource-profile__header">{{resource_name}}</h1>
   <h3 class="resource-profile__type">{{type}}</h3>
   <h3 class="resource-profile__rating">Overall Rating: {{rating}}</h3>
-  <div class='reviews-container'>{{> reviews}}</div>
+  <div class='reviews-container'>{{> reviews fromResourceProfile=true}}</div>
   {{#if loggedIn}}
     <form class="edit-form" method="POST" action="/submit/{{review_id}}">
       <label class="edit-form__text-label" for="review_content">Review: </label>

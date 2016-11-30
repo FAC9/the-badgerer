@@ -2,11 +2,14 @@
   <h3>Reviews</h3>
   {{#each reviews}}
   <ul class="review">
-    {{#if this.resource }}
+    {{#if ../fromUserProfile }}
     <li class="review__item review__resource"><a href="/resource/{{this.resource_id}}">{{this.resource}}</a></li>
-    {{/if}}
 
-    {{#if this.user }}
+    {{else if ../fromResourceProfile }}
+    <li class="review__item review__user"><a href="/user/{{this.user_id}}">{{this.user}}</a></li>
+
+    {{else}}
+    <li class="review__item review__resource"><a href="/resource/{{this.resource_id}}">{{this.resource}}</a></li>
     <li class="review__item review__user"><a href="/user/{{this.user_id}}">{{this.user}}</a></li>
     {{/if}}
 
