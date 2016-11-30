@@ -1,5 +1,5 @@
-const loginHandler = require('./loginHandler.js');
-const sqlTop5 = require('./dbrequests/top5resources.js');
+const loginHandler = require('./handlers/loginHandler.js');
+const homeHandler = require('./handlers/homeHandler.js');
 
 const login = {
   method: ['GET', 'POST'],
@@ -15,7 +15,7 @@ const logout = {
   config: {
     handler: function (request, reply) {
       request.cookieAuth.clear();
-      return reply.redirect('/home');
+      return reply.redirect('/');
     }
   }
 };
@@ -23,23 +23,12 @@ const logout = {
 const home = {
   method: 'GET',
   path: '/',
-  handler: (req, rep) => {
-    let testObj = {};
-    sqlTop5((err, data) => {
-      if (err) throw err;
-      console.log(data.length);
-      testObj.resources = data;
-      testObj.reviews = [{
-        resouce_id: '304390034',
-        resource: 'some resource',
-        user: 'nick field',
-        user_id: '666',
-        creation_date: '10/10/1987',
-        review_content: 'I love resources. They are great.',
-        canEdit: true
-      }];
-      rep.view('home', { testObj });
-    }); // end of callback
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: homeHandler
   }
 };
 
