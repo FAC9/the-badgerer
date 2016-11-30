@@ -1,6 +1,5 @@
 const loginHandler = require('./handlers/loginHandler.js');
 const homeHandler = require('./handlers/homehandler.js');
-const reviewHandler = require('./handlers/reviewHandler.js');
 const resourceProfileHandler = require('./handlers/resourceProfile.js');
 const addReviewHandler = require('./handlers/addReviewHandler.js');
 
@@ -20,14 +19,6 @@ const logout = {
       request.cookieAuth.clear();
       return reply.redirect('/');
     }
-  }
-};
-
-const resource = {
-  method: 'GET',
-  path: '/resource',
-  config: {
-    handler: reviewHandler
   }
 };
 
@@ -57,7 +48,7 @@ const addReview = {
 
 const resourceProfile = {
   method: 'GET',
-  path: '/resource_profile',
+  path: '/resource/{num}',
   config: {
     auth: {
       mode: 'try',
@@ -68,5 +59,5 @@ const resourceProfile = {
 };
 
 module.exports = [
-  login, logout, SecureHome, resource, resourceProfile, addReview
+  login, logout, SecureHome, resourceProfile, addReview
 ];
