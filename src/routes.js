@@ -1,5 +1,6 @@
 const loginHandler = require('./handlers/loginHandler.js');
-const homeHandler = require('./handlers/homeHandler.js');
+const homeHandler = require('./handlers/homehandler.js');
+const reviewHandler = require('./handlers/reviewHandler.js');
 
 const login = {
   method: ['GET', 'POST'],
@@ -19,37 +20,15 @@ const logout = {
     }
   }
 };
-// const home = {
-//   method: 'GET',
-//   path: '/',
-//   handler: (req, rep) => {
-//     let testObj = {
-//       resources: [{
-//         resource: 'FAC',
-//         resouce_id: '111404835',
-//         type: 'codestravaganza',
-//         reviews: '10',
-//         rating: '4.8'
-//       }, {
-//         resource: 'makers academy',
-//         resouce_id: '1114123404835',
-//         type: 'hmm',
-//         reviews: '10',
-//         rating: '2.4'
-//       }],
-//       reviews: [{
-//         resouce_id: '304390034',
-//         resource: 'some resource',
-//         user: 'nick field',
-//         user_id: '666',
-//         creation_date: '10/10/1987',
-//         review_content: 'I love resources. They are great.',
-//         canEdit: true
-//       }]
-//     };
-//     rep.view('home', testObj);
-//   }
-// };
+
+const resource = {
+  method: 'GET',
+  path: '/resource',
+  config: {
+    handler: reviewHandler
+  }
+};
+
 const SecureHome = {
   method: 'GET',
   path: '/',
@@ -63,5 +42,5 @@ const SecureHome = {
 };
 
 module.exports = [
-  login, logout, SecureHome
+  login, logout, SecureHome, resource
 ];
