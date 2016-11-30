@@ -1,8 +1,8 @@
-const sqlTop5 = require('../dbrequests/top5resources.js');
+const { top5resources } = require('../dbrequests/resources_query.js');
 const sqlRec5 = require('../dbrequests/recent5reviews.js');
 
 const homeHandler = (req, rep) => {
-  sqlTop5((err, data) => {
+  top5resources((err, data) => {
     let obj = {};
     if (err) throw err;
     obj.resources = data;

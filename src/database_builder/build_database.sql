@@ -29,7 +29,12 @@ CREATE TABLE resources (
 
 INSERT INTO  resources(resource_name,resource_url,category_id,image_url,creation_date,user_id) VALUES('badger.com','www.badger.com',1, 'gorgeous_badgers.jpg0','2016-11-29',1);
 INSERT INTO  resources(resource_name,resource_url,category_id,image_url,creation_date,user_id) VALUES('codeacademy','www.codeacademy.com',1, 'gorgeous_badgers.jpg0','2016-11-29',1);
-INSERT INTO  resources(resource_name,resource_url,category_id,image_url,creation_date,user_id) VALUES('codewars','www.codewars.com',1, 'gorgeous_badgers.jpg0','2016-11-29',1);
+INSERT INTO  resources(resource_name,resource_url,category_id,image_url,creation_date,user_id) VALUES('treehouse','www.teamtreehouse.com',1, 'gorgeous_badgers.jpg0','2016-11-29',1);
+INSERT INTO  resources(resource_name,resource_url,category_id,image_url,creation_date,user_id) VALUES('eloquentjavascript','www.eloquentjavascript.com',1, 'gorgeous_badgers.jpg0','2016-11-29',1);
+INSERT INTO  resources(resource_name,resource_url,category_id,image_url,creation_date,user_id) VALUES('codingforeveryone','www.foundersandcoders.com',1, 'gorgeous_badgers.jpg0','2016-11-29',1);
+INSERT INTO  resources(resource_name,resource_url,category_id,image_url,creation_date,user_id) VALUES('makers academy','www.makersacademy.com',1, 'gorgeous_badgers.jpg0','2016-11-29',1);
+INSERT INTO  resources(resource_name,resource_url,category_id,image_url,creation_date,user_id) VALUES('free code camp','www.freecodecamp.com',1, 'gorgeous_badgers.jpg0','2016-11-29',1);
+INSERT INTO  resources(resource_name,resource_url,category_id,image_url,creation_date,user_id) VALUES('udacity','www.udacity.com',1, 'gorgeous_badgers.jpg0','2016-11-29',1);
 
 
 CREATE TABLE reviews (
