@@ -7,10 +7,8 @@ const login = {
   config: {
     handler: function (request, reply) {
       function correct () {
-        console.log("I'm a function");
       }
       let message;
-      console.log(request.method);
       if (request.method === 'post') {
         const username = request.payload.username;
         const password = request.payload.password;
@@ -20,21 +18,17 @@ const login = {
         var user;
         sqlLogin((err, data) => {
           var message = '';
-          console.log('called sql');
           if (err) { throw err; }
           if (data.length) user = data[0];
           if (!user) {
             message = 'User does not exist';
             return reply.view('login.html', { message });
           }
-          console.log(password);
-          console.log('from fb ', user.password);
           if (user.username === username) {
             Bcrypt.compare(password, user.password, function (err, isMatch) {
               if (err) {
                 return console.error(err);
               }
-              console.log('do they match?', isMatch);
               if (isMatch) {
                 message = 'You are logged in!';
                 return reply.view('login', {message});
