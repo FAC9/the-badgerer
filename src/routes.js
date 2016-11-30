@@ -60,7 +60,7 @@ const logout = {
 
 const home = {
   method: 'GET',
-  path: '/test',
+  path: '/',
   handler: (req, rep) => {
     let testObj = {
       resources: [{
