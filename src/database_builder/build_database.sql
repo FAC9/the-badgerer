@@ -13,7 +13,7 @@ CREATE TABLE users (
   signup_date DATE           NOT NULL
 );
 
-INSERT INTO  users (username, password, email, signup_date) VALUES('badger','BigBadBadger', 'contact@ThatBadger.com','2016-11-29');
+INSERT INTO  users (username, password, email, signup_date) VALUES('badger','$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'contact@ThatBadger.com','2016-11-29');
 
 
 
