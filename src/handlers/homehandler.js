@@ -14,6 +14,7 @@ const homeHandler = (req, rep) => {
       review_content: 'I love resources. They are great.',
       canEdit: true
     }];
+    console.log(testObj);
     rep.view('home', testObj);
   }); // end of callback
 };
