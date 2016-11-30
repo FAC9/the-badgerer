@@ -36,11 +36,13 @@ CREATE TABLE reviews (
   review_content   VARCHAR(1000)   NOT NULL,
   rating           INTEGER    NOT NULL,
   creation_date    DATE            NOT NULL,
+  modified_date    DATE           NOT NULL,
   resource_id       INTEGER          NOT NULL,
+  status           INTEGER         NOT NULL,
   user_id          INTEGER         NOT NULL
 );
 
-INSERT INTO  reviews(review_content,rating,creation_date,resource_id, user_id) VALUES('badger badger badger badger badger','5','2016-11-29',1,1);
+INSERT INTO  reviews(review_content,rating,creation_date,modified_date,status,resource_id, user_id) VALUES('I am a review', 5, NOW(), NOW(), 1, 1, 1);
 
 CREATE TABLE types (
   type_id         SERIAL         PRIMARY KEY NOT NULL,
