@@ -1,6 +1,7 @@
 const loginHandler = require('./handlers/loginHandler.js');
 const homeHandler = require('./handlers/homehandler.js');
 const reviewHandler = require('./handlers/reviewHandler.js');
+const resourceProfileHandler = require('./handlers/resourceProfile.js');
 
 const login = {
   method: ['GET', 'POST'],
@@ -41,6 +42,18 @@ const SecureHome = {
   }
 };
 
+const resourceProfile = {
+  method: 'GET',
+  path: '/resource_profile',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: resourceProfileHandler
+  }
+};
+
 module.exports = [
-  login, logout, SecureHome, resource
+  login, logout, SecureHome, resource, resourceProfile
 ];
