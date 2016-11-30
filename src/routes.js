@@ -1,4 +1,5 @@
-const loginHandler = require('./loginHandler.js');
+const loginHandler = require('./handlers/loginHandler.js');
+const homeHandler = require('./handlers/homeHandler.js');
 
 const login = {
   method: ['GET', 'POST'],
@@ -27,15 +28,7 @@ const home = {
       mode: 'try',
       strategy: 'base'
     },
-    handler: (req, rep) => {
-      let data = {};
-      if (req.auth.isAuthenticated) {
-        data.loggedIn = true;
-        data.current_user = req.auth.credentials.current_user;
-        data.current_user_id = req.auth.credentials.current_user_id;
-      }
-      rep.view('home', data);
-    }
+    handler: homeHandler
   }
 };
 
