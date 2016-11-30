@@ -1,10 +1,10 @@
 const dbConn = require('../dbconnection.js');
 
-module.exports = (cb, username) => {
+module.exports = (cb, resource_id, user_id, rating, review_content, status) => {
   dbConn.query(`INSERT INTO  reviews(review_content,rating,creation_date,modified_date,status,resource_id, user_id)
    VALUES(
      '${review_content}',
-     '${review_rating}',
+     '${rating}',
      NOW(),
     NOW(),
     '${status}',

@@ -11,6 +11,8 @@ const resourceProfile = (req, rep) => {
       obj.current_user_id = req.auth.credentials.current_user_id;
       obj.loggedIn = true;
     }
+    obj.resource_id = obj.reviews[0].resource_id;
+    obj.resource_name = obj.reviews[0].resource_name;
     rep.view('resource_profile', obj);
   },
   resource_id);
