@@ -1,7 +1,7 @@
 const viewReviews = require('../dbrequests/viewreviews.js');
 
 const resourceProfile = (req, rep) => {
-  let resource_id = 1;  // somehow get this from the page
+  const resource_id = req.params.num;
   viewReviews((err, data) => {
     if (err) { throw err; }
     let obj = {};

@@ -48,7 +48,7 @@ const resources = {
 
 const resourceProfile = {
   method: 'GET',
-  path: '/resource_profile',
+  path: '/resource/{num}',
   config: {
     auth: {
       mode: 'try',
