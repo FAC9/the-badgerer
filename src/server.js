@@ -23,7 +23,9 @@ server.register([Vision, Inert, CookieAuth], (err) => {
       html: require('handlebars')
     },
     relativeTo: __dirname,
-    path: '../views'
+    path: '../views',
+    layoutPath: '../views/layout/',
+    partialsPath: '../views/partials/'
   });
 
   server.auth.strategy('base', 'cookie', options);
