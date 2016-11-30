@@ -11,7 +11,7 @@ const loginHandler = function (request, reply) {
     sqlLogin((err, data) => {
       if (err) { throw err; }
       if (!data) {
-        return reply.view('login.html', { message: 'User does not exist' });
+        return reply.view('login', { message: 'User does not exist' });
       }
       if (data.username === username) {
         Bcrypt.compare(password, data.password, function (err, isMatch) {
@@ -20,7 +20,7 @@ const loginHandler = function (request, reply) {
             request.cookieAuth.set({ current_user: data.username, current_user_id: data.user_id }); // set cookie, our user is the entire object returned from the db
             reply.redirect('/');
           } else {
-            reply.view('login.html', { message: 'Wrong password' });
+            reply.view('login', { message: 'Wrong password' });
           }
         });
       }
