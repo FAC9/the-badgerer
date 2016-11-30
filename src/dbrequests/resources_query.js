@@ -5,14 +5,14 @@ const standardQuery = `SELECT
     resource_name,
     resource_url,
     resources.category_id,
-    AVG(rating) "rating",
+    ROUND(AVG(rating),1) "rating",
     COUNT(reviews.review_id) "no_reviews",
     category_name
     FROM resources
-    JOIN reviews ON (resources.resource_id = reviews.resource_id)
+    LEFT JOIN reviews ON (resources.resource_id = reviews.resource_id)
     JOIN categories ON (resources.category_id = categories.category_id)
     GROUP BY resources.resource_id, category_name
-    ORDER BY AVG(rating) DESC`;
+    ORDER BY AVG(rating) DESC NULLS LAST`;
 
 const allResources = (cb, username) => {
   dbConn.query(standardQuery + ';', (err, data) => {
