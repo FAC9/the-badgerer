@@ -1,4 +1,5 @@
 const sqlLogin = require('./dbrequests/login.js');
+const Bcrypt = require('bcrypt');
 
 const login = {
   method: ['GET', 'POST'],
@@ -21,19 +22,29 @@ const login = {
           var message = '';
           console.log('called sql');
           if (err) { throw err; }
-          if (data.length) user = data[0].username;
+          if (data.length) user = data[0];
           if (!user) {
             message = 'User does not exist';
             return reply.view('login.html', { message });
           }
+          console.log(password);
+          console.log('from fb ', user.password);
+          if (user.username === username) {
+            Bcrypt.compare(password, user.password, function (err, isMatch) {
+              if (err) {
+                return console.error(err);
+              }
+              console.log('do they match?', isMatch);
+              if (isMatch) {
+                message = 'You are logged in!';
+                return reply.view('login', {message});
+              } else {
+                message = 'Wrong password';
+                return reply.view('login.html', { message });
+              }
+            });
+          }
         }, username);
-
-        /* let user = '';
-        console.log('hello');
-        if (user) {
-          req.cookieAuth.set(user);
-          reply('logged in'); // this should serve home page/ success page
-        } */
       }
       if (request.method === 'get' || message) {
         return reply('<html><head><title>Login page</title></head><body>' +
