@@ -7,10 +7,10 @@
   </tr>
   {{#each resources}}
   <tr class="resource-table__row">
-    <td class="resource-table__cell resource-table__resource"><a href="/resource/{{this.resource_id}}" title="{{this.resource_name}}">{{this.resource_name}}</a></td>
-    <td class="resource-table__cell resource-table__category"><a href="/resource/{{this.resource_id}}" title="{{this.resource_name}}">{{this.category_name}}</a></td>
-    <td class="resource-table__cell resource-table__reviews"><a href="/resource/{{this.resource_id}}" title="{{this.resource_name}}">{{this.no_reviews}}</a></td>
-    <td class="resource-table__cell resource-table__rating"><a href="/resource/{{this.resource_id}}" title="{{this.resource_name}}">{{this.rating}}</a></td>
+    <td class="resource-table__cell resource-table__resource"><a href="/resource?resource_id={{this.resource_id}}" title="{{this.resource_name}}">{{this.resource_name}}</a></td>
+    <td class="resource-table__cell resource-table__category"><a href="/resource?resource_id={{this.resource_id}}" title="{{this.resource_name}}">{{this.category_name}}</a></td>
+    <td class="resource-table__cell resource-table__reviews"><a href="/resource?resource_id={{this.resource_id}}" title="{{this.resource_name}}">{{this.no_reviews}}</a></td>
+    <td class="resource-table__cell resource-table__rating"><a href="/resource?resource_id={{this.resource_id}}" title="{{this.resource_name}}">{{this.rating}}</a></td>
   </tr>
   {{/each}}
 </table>
