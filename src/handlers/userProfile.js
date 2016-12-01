@@ -2,6 +2,10 @@ const viewReviews = require('../dbrequests/reviews-query.js').byUser;
 const userQuery = require('../dbrequests/user-query.js');
 
 const userProfile = (req, rep) => {
+  let currentUser = 0;
+  if (req.auth.isAuthenticated) {
+    currentUser = req.auth.credentials.current_user_id;
+  }
   const userId = req.params.user_id;
   viewReviews((err, data) => {
     if (err) { throw err; }
@@ -26,7 +30,7 @@ const userProfile = (req, rep) => {
       rep.view('user_profile', obj);
     }, userId);
   },
-  userId);
+  userId, currentUser);
 };
 
 module.exports = userProfile;
