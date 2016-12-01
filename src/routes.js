@@ -2,12 +2,13 @@ const loginHandler = require('./handlers/loginHandler.js');
 const homeHandler = require('./handlers/homehandler.js');
 const resourcesHandler = require('./handlers/resourcesHandler.js');
 const resourceProfileHandler = require('./handlers/resourceProfile.js');
+const userProfileHandler = require('./handlers/userProfile.js');
 const addReviewHandler = require('./handlers/addReviewHandler.js');
 const editHandler = require('./handlers/editHandler.js');
 
 const file = {
   method: 'GET',
-  path: '/{path}',
+  path: '/{path*}',
   handler: {
     directory: {
       path: '.'
@@ -94,6 +95,26 @@ const resourceProfile = {
   }
 };
 
+const userProfile = {
+  method: 'GET',
+  path: '/user/{user_id}',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: userProfileHandler
+  }
+};
+
 module.exports = [
-  login, logout, SecureHome, resources, resourceProfile, addReview, edit, file
+  login,
+  logout,
+  SecureHome,
+  resources,
+  resourceProfile,
+  addReview,
+  edit,
+  file,
+  userProfile
 ];

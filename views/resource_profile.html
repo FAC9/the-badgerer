@@ -1,8 +1,7 @@
 <nav class='nav'>{{> header}}</nav>
 <div class="resource-profile">
-  <img class="resource-profile__image" src='/{{image_url}}' alt="{{resource_name}} image"/>
-  <h1 class="resource-profile__header">{{resource_name}}</h1>
-  <a href="{{resource_url}}" target='blank'>USE THIS RESOURCE YOU LUNATIC</a>
+  <a href="{{resource_url}}" target='blank'><img class="resource-profile__image" src='/{{image_url}}' alt="{{resource_name}} image"/></a>
+  <a href="{{resource_url}}" target='blank'><h1 class="resource-profile__header">{{resource_name}}</h1></a>
   <h3 class="resource-profile__type">{{type}}</h3>
   <h3 class="resource-profile__rating">Overall Rating: {{rating}}</h3>
   <div class='reviews-container'>{{> reviews fromResourceProfile=true}}</div>
