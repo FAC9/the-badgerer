@@ -21,7 +21,7 @@ const homeHandler = (req, rep) => {
         obj.loggedIn = true;
       }
       rep.view('home', obj);
-    });
+    }, req.auth.credentials.current_user_id);
   }); // end of callback
 };
 

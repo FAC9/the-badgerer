@@ -18,6 +18,7 @@ const resourceProfile = (req, rep) => {
       obj.loggedIn = true;
     }
     resourceQuery((err, data) => {
+      if (err) throw err;
       obj.resource_id = data[0].resource_id;
       obj.resource_name = data[0].resource_name;
       obj.resource_url = data[0].resource_url;
@@ -26,7 +27,7 @@ const resourceProfile = (req, rep) => {
       rep.view('resource_profile', obj);
     }, resource_id);
   },
-  resource_id);
+  resource_id, req.auth.credentials.current_user_id);
 };
 
 module.exports = resourceProfile;
