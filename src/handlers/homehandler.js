@@ -1,12 +1,12 @@
 const { top5resources } = require('../dbrequests/resources_query.js');
-const sqlRec5 = require('../dbrequests/recent5reviews.js');
+const latest5Reviews = require('../dbrequests/reviews-query.js').latest5;
 
 const homeHandler = (req, rep) => {
   top5resources((err, data) => {
     let obj = {};
     if (err) throw err;
     obj.resources = data;
-    sqlRec5((err, data) => {
+    latest5Reviews((err, data) => {
       if (err) throw err;
       obj.reviews = data;
       obj.reviews.canEdit = true;

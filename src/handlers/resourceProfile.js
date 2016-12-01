@@ -1,4 +1,4 @@
-const viewReviews = require('../dbrequests/viewreviews.js');
+const viewReviews = require('../dbrequests/reviews-query.js').byResources;
 const resourceQuery = require('../dbrequests/resources_query.js').oneResource;
 
 const resourceProfile = (req, rep) => {
