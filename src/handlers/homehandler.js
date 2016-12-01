@@ -2,8 +2,15 @@ const { top5resources } = require('../dbrequests/resources_query.js');
 const latest5Reviews = require('../dbrequests/reviews-query.js').latest5;
 
 const homeHandler = (req, rep) => {
+  let obj = {};
+  let currentUser = 0;
+  if (req.auth.isAuthenticated) {
+    obj.current_user = req.auth.credentials.current_user;
+    obj.current_user_id = req.auth.credentials.current_user_id;
+    currentUser = obj.current_user_id;
+    obj.loggedIn = true;
+  }
   top5resources((err, data) => {
-    let obj = {};
     if (err) throw err;
     obj.resources = data;
     latest5Reviews((err, data) => {
@@ -15,13 +22,8 @@ const homeHandler = (req, rep) => {
         x.creation_date = x.creation_date.toDateString();
         return x;
       });
-      if (req.auth.isAuthenticated) {
-        obj.current_user = req.auth.credentials.current_user;
-        obj.current_user_id = req.auth.credentials.current_user_id;
-        obj.loggedIn = true;
-      }
       rep.view('home', obj);
-    }, req.auth.credentials.current_user_id);
+    }, currentUser);
   }); // end of callback
 };
 
