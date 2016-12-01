@@ -28,10 +28,10 @@ const top5resources = (cb) => {
 };
 
 const oneResource = (cb, resourceId) => {
-  dbConn.query(standardQuery + `WHERE resources.resource_id = ${resourceId}
-    GROUP BY resources.resource_id, category_name;`, (err, data) => {
-    (err ? cb(err) : cb(null, data.rows));
-  });
+  dbConn.query(standardQuery + `WHERE resources.resource_id = $1
+    GROUP BY resources.resource_id, category_name;`, [resourceId], (err, data) => {
+      (err ? cb(err) : cb(null, data.rows));
+    });
 };
 
 module.exports = { allResources, top5resources, oneResource };
