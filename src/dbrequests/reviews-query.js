@@ -8,15 +8,16 @@ const query = `SELECT review_id,
                 review_content,
                 rating,
                 reviews.user_id,
-                users.username
+                users.username,
+                reviews.user_id = $1 "canEdit"
               FROM reviews
               JOIN resources ON (resources.resource_id = reviews.resource_id)
               JOIN users ON (reviews.user_id = users.user_id)
               WHERE status = 1 `;
 
-const latest5 = (cb) => {
+const latest5 = (cb, activeUser) => {
   dbConn.query(query + `ORDER BY modified_date DESC
-  LIMIT 5;`, (err, data) => {
+  LIMIT 5;`, [activeUser], (err, data) => {
     (err ? cb(err) : cb(null, data.rows));
   });
 };
