@@ -61,7 +61,7 @@ const addReview = {
 
 const deleteReview = {
   method: 'GET',
-  path: '/deletereview/{review_id}',
+  path: '/delete/{review_id}',
   config: {
     auth: {
       mode: 'try',
