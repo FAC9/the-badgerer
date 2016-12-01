@@ -6,7 +6,9 @@ html {
   font-family: futura;
 }
 
-
+.avatar-option {
+  height: 150px;
+}
 /* Nav */
 .nav {
   display: flex;
