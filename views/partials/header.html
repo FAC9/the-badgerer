@@ -1,7 +1,17 @@
-<a href="/"><img class="nav__logo" src="/images/badger-logo.png" alt="The Badgerer logo" title="The Badgerer"/></a>
-{{#if loggedIn}}
-  <a class="nav__username" href="/user/{{current_user_id}}">{{current_user}}</a>
-  <a class="nav__logout" href="/logout">Logout</a>
-{{else}}
-  <a class="nav__login" href="/login">Login</a>
-{{/if}}
+<div class='nav__header nav__item-container'>
+  <div class='header-container-image nav__item'>
+    <a href="/"><img class="nav__logo" src="/images/badger-logo.png" alt="The Badgerer logo" title="The Badgerer"/></a>
+  </div>
+  <div class='header-container-title nav__item'>
+      <h1 class='badgerer-title'>The Badgerer</h1>
+  </div>
+</div>
+
+<div class='nav__controls nav__item-container'>
+  {{#if loggedIn}}
+    <a class="nav__username nav__item" href="/user/{{current_user_id}}">{{current_user}}</a>
+    <a class="nav__logout nav__item" href="/logout">Logout</a>
+  {{else}}
+    <a class="nav__login nav__item" href="/login">Login</a>
+  {{/if}}
+</div>
