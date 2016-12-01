@@ -23,7 +23,7 @@ const latest5 = (cb, activeUser) => {
 };
 
 const byUser = (cb, user_id, activeUser) => {
-  dbConn.query(query + `AND users.user_id = $2 ORDER BY modified_date DESC;`, [activeUser, userId],
+  dbConn.query(query + `AND users.user_id = $2 ORDER BY modified_date DESC;`, [activeUser, user_id],
     (err, data) => {
       (err ? cb(err) : cb(null, data.rows));
     });
