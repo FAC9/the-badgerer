@@ -5,7 +5,7 @@ const resourceProfileHandler = require('./handlers/resourceProfile.js');
 const userProfileHandler = require('./handlers/userProfile.js');
 const addReviewHandler = require('./handlers/addReviewHandler.js');
 const editHandler = require('./handlers/editHandler.js');
-
+const deleteReviewHandler = require('./handlers/deleteReviewHandler.js');
 const file = {
   method: 'GET',
   path: '/{path*}',
@@ -56,6 +56,18 @@ const addReview = {
       strategy: 'base'
     },
     handler: addReviewHandler
+  }
+};
+
+const deleteReview = {
+  method: 'GET',
+  path: '/deletereview/{review_id}',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: deleteReviewHandler
   }
 };
 
@@ -114,6 +126,7 @@ module.exports = [
   resources,
   resourceProfile,
   addReview,
+  deleteReview,
   edit,
   file,
   userProfile
