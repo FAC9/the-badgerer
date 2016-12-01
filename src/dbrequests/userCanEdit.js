@@ -13,7 +13,7 @@ module.exports = (cb, userId, reviewId) => {
                 FROM reviews
                 JOIN resources ON (resources.resource_id = reviews.resource_id)
                 JOIN users ON (reviews.user_id = users.user_id)
-                WHERE (reviews.review_id = '${reviewId}') AND (reviews.user_id = '${userId}' )`, (err, data) => {
-    (err ? cb(err) : cb(null, data.rows[0]));
-  });
+                WHERE (reviews.review_id = $1) AND (reviews.user_id = $2 )`, [reviewId, userId], (err, data) => {
+                  (err ? cb(err) : cb(null, data.rows[0]));
+                });
 };
