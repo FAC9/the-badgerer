@@ -9,29 +9,30 @@ CREATE TABLE users (
   user_id         SERIAL         PRIMARY KEY NOT NULL,
   username    VARCHAR(100)   UNIQUE NOT NULL,
   password    VARCHAR(100)   NOT NULL,
+  image_link  VARCHAR(100)   NOT NULL,
   email       VARCHAR(100)   NOT NULL,
   signup_date DATE           NOT NULL
 );
 
-INSERT INTO users (username, password, email, signup_date) VALUES
-('badger','$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'contact@ThatBadger.com','2016-11-29'),
-('Cleop', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'Cleop@badger.com', NOW()),
-('denesnori', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'denesnori@badger.com', NOW()),
-('esraajb', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'esraajb@badger.com', NOW()),
-('jsms90', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'jsms90@badger.com', NOW()),
-('Jwhiles', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'Jwhiles@badger.com', NOW()),
-('limeyb7', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'limeyb7@badger.com', NOW()),
-('lucymonie', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'lucymonie@badger.com', NOW()),
-('marisid', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'marisid@badger.com', NOW()),
-('msachi', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'msachi@badger.com', NOW()),
-('njsfield', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'njsfield@badger.com', NOW()),
-('RhodesPeter', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'RhodesPeter@badger.com', NOW()),
-('SavageWilliam', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'SavageWilliam@badger.com', NOW()),
-('shireenzoaby', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'shireenzoaby@badger.com', NOW()),
-('skibinska', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'skibinska@badger.com', NOW()),
-('stevehopkinson', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'stevehopkinson@badger.com', NOW()),
-('sofer', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'sofer@badger.com', NOW()),
-('tbtommyb', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', 'tbtommyb@badger.com', NOW());
+INSERT INTO users (username, password,image_link, email, signup_date) VALUES
+('badger','$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger1.jpg', 'contact@ThatBadger.com','2016-11-29'),
+('Cleop', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', './images/badger1.jpg','Cleop@badger.com', NOW()),
+('denesnori', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e' ,'./images/badger1.jpg', 'denesnori@badger.com', NOW()),
+('esraajb', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger1.jpg', 'esraajb@badger.com', NOW()),
+('jsms90', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger2.jpg', 'jsms90@badger.com', NOW()),
+('Jwhiles', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger2.jpg', 'Jwhiles@badger.com', NOW()),
+('limeyb7', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger2.jpg', 'limeyb7@badger.com', NOW()),
+('lucymonie', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', './images/badger2.jpg','lucymonie@badger.com', NOW()),
+('marisid', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger3.jpg', 'marisid@badger.com', NOW()),
+('msachi', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', './images/badger3.jpg','msachi@badger.com', NOW()),
+('njsfield', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger3.jpg', 'njsfield@badger.com', NOW()),
+('RhodesPeter', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger3.jpg', 'RhodesPeter@badger.com', NOW()),
+('SavageWilliam', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger3.jpg', 'SavageWilliam@badger.com', NOW()),
+('shireenzoaby', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e', './images/badger3.jpg','shireenzoaby@badger.com', NOW()),
+('skibinska', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger4.jpg', 'skibinska@badger.com', NOW()),
+('stevehopkinson', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger4.jpg', 'stevehopkinson@badger.com', NOW()),
+('sofer', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger4.jpg', 'sofer@badger.com', NOW()),
+('tbtommyb', '$2a$10$IJETvwsaxVYjxPDeRarqjOrYZQWFQCgQp6VohxK0N1JbBYxRpIz7e','./images/badger4.jpg', 'tbtommyb@badger.com', NOW());
 
 
 CREATE TABLE resources (
