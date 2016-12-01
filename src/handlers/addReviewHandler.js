@@ -2,6 +2,7 @@ const Reviews = require('../dbrequests/addreview.js');
 
 const addReviewHandler = (req, rep) => {
   var user_id;
+  console.log(req.payload);
   if (req.auth.isAuthenticated) {
     user_id = req.auth.credentials.current_user_id;
   }

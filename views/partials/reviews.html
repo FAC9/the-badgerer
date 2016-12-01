@@ -4,7 +4,6 @@
   <ul class="review">
     {{#if ../fromUserProfile }}
     <li class="review__item review__resource"><a href="/resource/{{this.resource_id}}">{{this.resource_name}}</a></li>
-
     {{else if ../fromResourceProfile }}
     <li class="review__item review__user"><a href="/user/{{this.user_id}}">{{this.username}}</a></li>
 
@@ -15,6 +14,7 @@
 
     <li class="review__item review__date">{{this.creation_date}}</li>
     <li class="review__item review__body">{{this.review_content}}</li>
+    <li>{{this.rating}} / 5</li>
 
     {{#if this.canEdit }}
     <li class="review__item review__edit"><a href="/edit/{{this.review_id}}">Edit</a></li>
