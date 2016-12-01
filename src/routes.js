@@ -5,6 +5,16 @@ const resourceProfileHandler = require('./handlers/resourceProfile.js');
 const addReviewHandler = require('./handlers/addReviewHandler.js');
 const editHandler = require('./handlers/editHandler.js');
 
+const file = {
+  method: 'GET',
+  path: '/{path}',
+  handler: {
+    directory: {
+      path: '.'
+    }
+  }
+};
+
 const login = {
   method: ['GET', 'POST'],
   path: '/login',
@@ -85,5 +95,5 @@ const resourceProfile = {
 };
 
 module.exports = [
-  login, logout, SecureHome, resources, resourceProfile, addReview, edit
+  login, logout, SecureHome, resources, resourceProfile, addReview, edit, file
 ];

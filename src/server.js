@@ -3,8 +3,8 @@ const CookieAuth = require('hapi-auth-cookie');
 const Vision = require('vision');
 const Inert = require('inert');
 const Routes = require('./routes.js');
-
 const server = new Hapi.Server();
+const path = require('path');
 
 const options = {
   password: 'somebn,..........kjhkljhkb,bn,bnjmbjhthing',
@@ -15,7 +15,12 @@ const options = {
 };  // make this :)
 
 server.connection({
-  port: process.env.PORT || 8080
+  port: process.env.PORT || 8080,
+  routes: {
+    files: {
+      relativeTo: path.join(__dirname, '../public')
+    }
+  }
 });
 
 server.register([Vision, Inert, CookieAuth], (err) => {
@@ -30,7 +35,6 @@ server.register([Vision, Inert, CookieAuth], (err) => {
     helpersPath: '../views/helpers/',
     partialsPath: '../views/partials/'
   });
-
   server.auth.strategy('base', 'cookie', options);
   server.route(Routes);
 });
