@@ -32,6 +32,7 @@ server.register([Vision, Inert, CookieAuth], (err) => {
     relativeTo: __dirname,
     path: '../views',
     layoutPath: '../views/layout/',
+    helpersPath: '../views/helpers/',
     partialsPath: '../views/partials/'
   });
   server.auth.strategy('base', 'cookie', options);
