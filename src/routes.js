@@ -35,7 +35,7 @@ const logout = {
   }
 };
 
-const SecureHome = {
+const home = {
   method: 'GET',
   path: '/',
   config: {
@@ -110,7 +110,7 @@ const userProfile = {
 module.exports = [
   login,
   logout,
-  SecureHome,
+  home,
   resources,
   resourceProfile,
   addReview,
