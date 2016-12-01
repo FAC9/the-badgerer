@@ -17,6 +17,7 @@ const addReviewHandler = (req, rep) => {
 //    obj.reviews = data;
 //    rep.view('home', obj); // new template for viwing reviews of resource?
   }, resource_id, user_id, rating, review_content, status);
+  rep.redirect(`/resource/${resource_id}`);
 };
 
 module.exports = addReviewHandler;
