@@ -17,6 +17,7 @@ const resourceProfile = (req, rep) => {
       obj.resource_name = data[0].resource_name;
       obj.resource_url = data[0].resource_url;
       obj.rating = data[0].rating;
+      obj.image_url = data[0].image_url;
       rep.view('resource_profile', obj);
     }, resource_id);
   },
