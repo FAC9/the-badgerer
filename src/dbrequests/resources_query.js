@@ -4,6 +4,7 @@ const standardQuery = `SELECT
     resources.resource_id,
     resource_name,
     resource_url,
+    image_url,
     resources.category_id,
     ROUND(AVG(rating),1) "rating",
     COUNT(reviews.review_id) "no_reviews",
