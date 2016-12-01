@@ -33,6 +33,7 @@ server.register([Vision, Inert, CookieAuth], (err) => {
     path: '../views',
     layoutPath: '../views/layout/',
     helpersPath: '../views/helpers/',
+    layout: 'layout',
     partialsPath: '../views/partials/'
   });
   server.auth.strategy('base', 'cookie', options);
