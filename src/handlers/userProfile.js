@@ -25,8 +25,7 @@ const userProfile = (req, rep) => {
       obj.signup_date = data.signup_date.toDateString();
       rep.view('user_profile', obj);
     }, userId);
-  },
-  userId);
+  }, userId, 1);
 };
 
 module.exports = userProfile;
