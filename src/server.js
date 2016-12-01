@@ -14,6 +14,10 @@ const options = {
   isHttpOnly: false
 };  // make this :)
 
+setInterval(() => {
+  require('http').get('http://the-badgerer.herokuapp.com');
+}, 300000); // every 5 minutes
+
 server.connection({
   port: process.env.PORT || 8080,
   routes: {
