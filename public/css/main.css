@@ -1,0 +1,41 @@
+a {
+  text-decoration: none;
+}
+
+html {
+  font-family: futura;
+}
+
+
+/* Nav */
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav__item-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav__item {
+  display: inline-block;
+  padding: 1rem;
+}
+
+.nav__logo {
+  height: 4rem;
+}
+
+
+@media screen and (max-width: 700px) {
+
+  html {
+    font-size: .9rem;
+  }
+
+  .header-container-title {
+    display: none;
+  }
+}
