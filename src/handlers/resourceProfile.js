@@ -7,12 +7,18 @@ const resourceProfile = (req, rep) => {
     if (err) { throw err; }
     let obj = {};
     obj.reviews = data;
+    obj.reviews = obj.reviews.map((x) => {
+      x.modified_date = x.modified_date.toDateString();
+      x.creation_date = x.creation_date.toDateString();
+      return x;
+    });
     if (req.auth.isAuthenticated) {
       obj.current_user = req.auth.credentials.current_user;
       obj.current_user_id = req.auth.credentials.current_user_id;
       obj.loggedIn = true;
     }
     resourceQuery((err, data) => {
+      if (err) throw err;
       obj.resource_id = data[0].resource_id;
       obj.resource_name = data[0].resource_name;
       obj.resource_url = data[0].resource_url;
@@ -21,7 +27,7 @@ const resourceProfile = (req, rep) => {
       rep.view('resource_profile', obj);
     }, resource_id);
   },
-  resource_id);
+  resource_id, req.auth.credentials.current_user_id);
 };
 
 module.exports = resourceProfile;

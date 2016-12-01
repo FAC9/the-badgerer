@@ -5,6 +5,7 @@
   <h3 class="resource-profile__type">{{type}}</h3>
   <h3 class="resource-profile__rating">Overall Rating: {{rating}}</h3>
   <div class='reviews-container'>{{> reviews fromResourceProfile=true}}</div>
+  <a class="back-to-resources" href="/resources" target="blank" title="back to resources">Back To Resources</a>
   {{#if loggedIn}}
     <form class="edit-form" method="POST" action="/addreview/{{resource_id}}">
       <label class="edit-form__text-label" for="review_content">Review: </label>

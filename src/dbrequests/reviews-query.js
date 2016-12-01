@@ -8,28 +8,29 @@ const query = `SELECT review_id,
                 review_content,
                 rating,
                 reviews.user_id,
-                users.username
+                users.username,
+                reviews.user_id = $1 "canEdit"
               FROM reviews
               JOIN resources ON (resources.resource_id = reviews.resource_id)
               JOIN users ON (reviews.user_id = users.user_id)
               WHERE status = 1 `;
 
-const latest5 = (cb) => {
+const latest5 = (cb, activeUser) => {
   dbConn.query(query + `ORDER BY modified_date DESC
-  LIMIT 5;`, (err, data) => {
+  LIMIT 5;`, [activeUser], (err, data) => {
     (err ? cb(err) : cb(null, data.rows));
   });
 };
 
-const byUser = (cb, user_id) => {
-  dbConn.query(query + `AND users.user_id = $1 ORDER BY modified_date DESC;`, [user_id],
+const byUser = (cb, user_id, activeUser) => {
+  dbConn.query(query + `AND users.user_id = $2 ORDER BY modified_date DESC;`, [activeUser, user_id],
     (err, data) => {
       (err ? cb(err) : cb(null, data.rows));
     });
 };
 
-const byResources = (cb, resource_id) => {
-  dbConn.query(query + `AND resources.resource_id = $1 ORDER BY modified_date DESC;`, [resource_id],
+const byResources = (cb, resource_id, activeUser) => {
+  dbConn.query(query + `AND resources.resource_id = $2 ORDER BY modified_date DESC;`, [activeUser, resource_id],
     (err, data) => {
       (err ? cb(err) : cb(null, data.rows));
     });
