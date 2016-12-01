@@ -1,6 +1,6 @@
 const dbConn = require('../dbconnection.js');
 
-module.exports = (cb, user_id, review_id) => {
+module.exports = (cb, userId, reviewId) => {
   dbConn.query(`SELECT review_id,
                   reviews.resource_id,
                   resource_name,
@@ -13,7 +13,7 @@ module.exports = (cb, user_id, review_id) => {
                 FROM reviews
                 JOIN resources ON (resources.resource_id = reviews.resource_id)
                 JOIN users ON (reviews.user_id = users.user_id)
-                WHERE (reviews.review_id = '${review_id}') AND (reviews.user_id = '${user_id}' )`, (err, data) => {
-    (err ? cb(err) : cb(null, data.rows));
+                WHERE (reviews.review_id = '${reviewId}') AND (reviews.user_id = '${userId}' )`, (err, data) => {
+    (err ? cb(err) : cb(null, data.rows[0]));
   });
 };
