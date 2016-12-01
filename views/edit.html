@@ -1,6 +1,6 @@
 <h1 class='edit-header'>Edit Review</h1>
 <h3 class='edit-subtitle'>{{resource_name}}</h3>
-<form class="edit-form" method="post" action="/edit/1">
+<form class="edit-form" method="post" action="/edit/{{review_id}}">
   <label class="edit-form__text-label" for="review_content">Review: </label>
     <textarea class="edit-form__text" id="review_content" name="review_content">{{review_content}}</textarea>
   <label class="edit-form__rating-label" for="rating">Rating: </label>
