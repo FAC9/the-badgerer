@@ -1,20 +1,19 @@
 const addReviewSql = require('../dbrequests/addReview.js');
 
 const addReviewHandler = (req, rep) => {
-  var user_id;
-  console.log(req.payload);
+  var userId;
   if (req.auth.isAuthenticated) {
-    user_id = req.auth.credentials.current_user_id;
+    userId = req.auth.credentials.current_user_id;
   }
-  const resource_id = req.params.resource_id;
+  const resourceId = req.params.resource_id;
   const rating = req.payload.rating;
-  const review_content = req.payload.review_content;
+  const reviewContent = req.payload.review_content;
   const status = 1;
 
   addReviewSql((err, data) => {
     if (err) throw err;
-  }, resource_id, user_id, rating, review_content, status);
-  rep.redirect(`/resource/${resource_id}`);
+  }, resourceId, userId, rating, reviewContent, status);
+  rep.redirect(`/resource/${resourceId}`);
 };
 
 const addReview = {

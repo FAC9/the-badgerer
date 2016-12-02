@@ -12,8 +12,8 @@ module.exports = (cb, resource_id, user_id, rating, review_content, status) => {
    VALUES(
     $1,
     $2,
-    NOW(),
-    NOW(),
+    CURRENT_DATE ,
+    CURRENT_DATE ,
     1,
     $3,
     $4)`, [review_content, rating, resource_id, user_id], (err, data) => {
