@@ -1,4 +1,4 @@
-const deleteReviewSql = require('../dbrequests/deletereview.js');
+const deleteReviewSql = require('../dbrequests/deleteReview.js');
 
 const deleteReviewHandler = (req, rep) => {
   var userId;
