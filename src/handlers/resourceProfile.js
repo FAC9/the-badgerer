@@ -1,5 +1,5 @@
 const viewReviews = require('../dbrequests/reviews-query.js').byResources;
-const resourceQuery = require('../dbrequests/resources_query.js').oneResource;
+const resourceQuery = require('../dbrequests/getResources.js').oneResource;
 
 const resourceProfileHandler = (req, rep) => {
   let resource_id = req.params.num;
