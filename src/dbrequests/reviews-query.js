@@ -17,7 +17,7 @@ const query = `SELECT review_id,
 
 const latest5 = (cb, activeUser) => {
   dbConn.query(query + `ORDER BY modified_date DESC
-  LIMIT 5;`, [activeUser], (err, data) => {
+  LIMIT 5`, [activeUser], (err, data) => {
     (err ? cb(err) : cb(null, data.rows));
   });
 };

@@ -15,21 +15,21 @@ const standardQuery = `SELECT
 
 const allResources = (cb) => {
   dbConn.query(standardQuery + `GROUP BY resources.resource_id, category_name
-  ORDER BY AVG(rating) DESC NULLS LAST;`, (err, data) => {
+  ORDER BY AVG(rating) DESC NULLS LAST`, (err, data) => {
     (err ? cb(err) : cb(null, data.rows));
   });
 };
 
 const top5resources = (cb) => {
   dbConn.query(standardQuery + `GROUP BY resources.resource_id, category_name
-  ORDER BY AVG(rating) DESC NULLS LAST LIMIT 5;`, (err, data) => {
+  ORDER BY AVG(rating) DESC NULLS LAST LIMIT 5`, (err, data) => {
     (err ? cb(err) : cb(null, data.rows));
   });
 };
 
 const oneResource = (cb, resourceId) => {
   dbConn.query(standardQuery + `WHERE resources.resource_id = $1
-    GROUP BY resources.resource_id, category_name;`, [resourceId], (err, data) => {
+    GROUP BY resources.resource_id, category_name`, [resourceId], (err, data) => {
       (err ? cb(err) : cb(null, data.rows));
     });
 };
