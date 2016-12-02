@@ -13,9 +13,16 @@ const standardQuery = `SELECT
     LEFT JOIN reviews ON (resources.resource_id = reviews.resource_id)
     JOIN categories ON (resources.category_id = categories.category_id)`;
 
-const allResources = (cb) => {
+const all = (cb) => {
   dbConn.query(standardQuery + `GROUP BY resources.resource_id, category_name
   ORDER BY AVG(rating) DESC NULLS LAST`, (err, data) => {
+    (err ? cb(err) : cb(null, data.rows));
+  });
+};
+
+const amount = (cb) => {
+  dbConn.query(standardQuery + `GROUP BY resources.resource_id, category_name
+  ORDER BY COUNT(reviews.review_id) DESC NULLS LAST`, (err, data) => {
     (err ? cb(err) : cb(null, data.rows));
   });
 };
@@ -34,4 +41,4 @@ const oneResource = (cb, resourceId) => {
     });
 };
 
-module.exports = { allResources, top5resources, oneResource };
+module.exports = { all, amount, top5resources, oneResource };

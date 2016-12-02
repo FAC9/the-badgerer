@@ -1,12 +1,15 @@
-const { allResources } = require('../dbrequests/getResources.js');
+const { all, amount } = require('../dbrequests/getResources.js');
 
 const resourcesHandler = (req, rep) => {
-  allResources((err, data) => {
-    let obj = {};
-    if (err) throw err;
-    obj.resources = data;
-    rep.view('resources_list', obj);
-  });
+  if (req.query.sortby === 'amount') {
+    amount((err, data) => {
+      (err) ? console.log(err) : rep.view('resources_list', {resources: data});
+    });
+  } else {
+    all((err, data) => {
+      (err) ? console.log(err) : rep.view('resources_list', {resources: data});
+    });
+  }
 };
 
 const resources = {

@@ -2,8 +2,13 @@
   <tr class="resource-table__row resource-table__row-header">
     <th class="resource-table__header">Resource</th>
     <th class="resource-table__header">Type</th>
+    {{#if fromResourceList}}
+    <th class="resource-table__header"><a href='/resources?sortby=amount'>Number of reviews</a></th>
+    <th class="resource-table__header"><a href='/resources?sortby=rating'>Average user rating</a></th>
+    {{else}}
     <th class="resource-table__header">Number of reviews</th>
     <th class="resource-table__header">Average user rating</th>
+    {{/if}}
   </tr>
   {{#each resources}}
   <tr class="resource-table__row">
