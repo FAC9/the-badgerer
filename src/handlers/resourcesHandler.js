@@ -14,4 +14,16 @@ const resourcesHandler = (req, rep) => {
   });
 };
 
-module.exports = resourcesHandler;
+const resources = {
+  method: 'GET',
+  path: '/resources',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: resourcesHandler
+  }
+};
+
+module.exports = resources;

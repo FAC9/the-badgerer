@@ -1,4 +1,4 @@
-const deleteReview = require('../dbrequests/deletereview.js');
+const deleteReviewSql = require('../dbrequests/deletereview.js');
 
 const deleteReviewHandler = (req, rep) => {
   var userId;
@@ -6,10 +6,22 @@ const deleteReviewHandler = (req, rep) => {
     userId = req.auth.credentials.current_user_id;
   }
   const reviewId = req.params.review_id;
-  deleteReview((err, data) => {
+  deleteReviewSql((err, data) => {
     if (err) throw err;
   }, reviewId, userId);
   rep.redirect(`/user/${userId}`);
 };
 
-module.exports = deleteReviewHandler;
+const deleteReview = {
+  method: 'GET',
+  path: '/delete/{review_id}',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: deleteReviewHandler
+  }
+};
+
+module.exports = deleteReview;

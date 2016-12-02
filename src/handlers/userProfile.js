@@ -1,7 +1,7 @@
 const viewReviews = require('../dbrequests/reviews-query.js').byUser;
 const userQuery = require('../dbrequests/user-query.js');
 
-const userProfile = (req, rep) => {
+const userProfileHandler = (req, rep) => {
   let currentUser = 0;
   if (req.auth.isAuthenticated) {
     currentUser = req.auth.credentials.current_user_id;
@@ -31,6 +31,18 @@ const userProfile = (req, rep) => {
     }, userId);
   },
   userId, currentUser);
+};
+
+const userProfile = {
+  method: 'GET',
+  path: '/user/{user_id}',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: userProfileHandler
+  }
 };
 
 module.exports = userProfile;

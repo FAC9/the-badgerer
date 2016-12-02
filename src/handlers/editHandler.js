@@ -33,4 +33,16 @@ const editHandler = (req, rep) => {
   }
 };
 
-module.exports = editHandler;
+const edit = {
+  method: ['GET', 'POST'],
+  path: '/edit/{review_id}',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: editHandler
+  }
+};
+
+module.exports = edit;

@@ -28,4 +28,12 @@ const loginHandler = function (request, reply) {
   }
 };
 
-module.exports = loginHandler;
+const login = {
+  method: ['GET', 'POST'],
+  path: '/login',
+  config: {
+    handler: loginHandler
+  }
+};
+
+module.exports = login;
