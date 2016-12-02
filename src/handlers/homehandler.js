@@ -14,13 +14,12 @@ const homeHandler = (req, rep) => {
     if (err) throw err;
     obj.resources = data;
     latest5Reviews((err, data) => {
-      console.log(data);
       if (err) throw err;
       obj.reviews = data;
       obj.reviews.canEdit = true;
       rep.view('home', obj);
     }, currentUser);
-  }); // end of callback
+  });
 };
 
 const home = {

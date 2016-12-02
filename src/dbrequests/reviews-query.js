@@ -22,15 +22,15 @@ const latest5 = (cb, activeUser) => {
   });
 };
 
-const byUser = (cb, user_id, activeUser) => {
-  dbConn.query(query + `AND users.user_id = $2 ORDER BY modified_date DESC;`, [activeUser, user_id],
+const byUser = (cb, userId, activeUser) => {
+  dbConn.query(query + `AND users.user_id = $2 ORDER BY modified_date DESC;`, [activeUser, userId],
     (err, data) => {
       (err ? cb(err) : cb(null, data.rows));
     });
 };
 
-const byResources = (cb, resource_id, activeUser) => {
-  dbConn.query(query + `AND resources.resource_id = $2 ORDER BY modified_date DESC;`, [activeUser, resource_id],
+const byResources = (cb, resourceId, activeUser) => {
+  dbConn.query(query + `AND resources.resource_id = $2 ORDER BY modified_date DESC;`, [activeUser, resourceId],
     (err, data) => {
       (err ? cb(err) : cb(null, data.rows));
     });

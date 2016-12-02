@@ -2,7 +2,7 @@ const viewReviews = require('../dbrequests/reviews-query.js').byResources;
 const resourceQuery = require('../dbrequests/resources_query.js').oneResource;
 
 const resourceProfileHandler = (req, rep) => {
-  let resource_id = req.params.num;
+  let resourceId = req.params.num;
   let currentUser = 0;
   let obj = {};
   if (req.auth.isAuthenticated) {
@@ -22,9 +22,9 @@ const resourceProfileHandler = (req, rep) => {
       obj.rating = data[0].rating;
       obj.image_url = data[0].image_url;
       rep.view('resource_profile', obj);
-    }, resource_id);
+    }, resourceId);
   },
-  resource_id, currentUser);
+  resourceId, currentUser);
 };
 
 const resourceProfile = {
