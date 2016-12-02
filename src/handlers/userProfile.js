@@ -1,5 +1,5 @@
-const viewReviews = require('../dbrequests/reviews-query.js').byUser;
-const userQuery = require('../dbrequests/user-query.js');
+const viewReviews = require('../dbrequests/getReviews.js').byUser;
+const userQuery = require('../dbrequests/getUserDetails.js');
 
 const userProfileHandler = (req, rep) => {
   let currentUser = 0;

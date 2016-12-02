@@ -1,4 +1,4 @@
-const { allResources } = require('../dbrequests/resources_query.js');
+const { allResources } = require('../dbrequests/getResources.js');
 
 const resourcesHandler = (req, rep) => {
   allResources((err, data) => {

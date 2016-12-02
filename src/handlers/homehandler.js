@@ -1,5 +1,5 @@
-const { top5resources } = require('../dbrequests/resources_query.js');
-const latest5Reviews = require('../dbrequests/reviews-query.js').latest5;
+const { top5resources } = require('../dbrequests/getResources.js');
+const latest5Reviews = require('../dbrequests/getReviews.js').latest5;
 
 const homeHandler = (req, rep) => {
   let obj = {};
