@@ -18,11 +18,6 @@ const homeHandler = (req, rep) => {
       if (err) throw err;
       obj.reviews = data;
       obj.reviews.canEdit = true;
-      // obj.reviews = obj.reviews.map((x) => {
-      //   x.modified_date = x.modified_date.toDateString();
-      //   x.creation_date = x.creation_date.toDateString();
-      //   return x;
-      // });
       rep.view('home', obj);
     }, currentUser);
   }); // end of callback
