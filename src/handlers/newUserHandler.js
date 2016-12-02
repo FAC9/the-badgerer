@@ -1,5 +1,5 @@
 const newUserSql = require('../dbrequests/newUser.js');
-const userQuery = require('../dbrequests/user-query.js').byUsername;
+const getUserDetails = require('../dbrequests/getUserDetails.js').byUsername;
 const Bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
 
@@ -18,7 +18,7 @@ const newUserHandler = (req, rep) => {
     } else if (password !== rpassword) {
       rep.view('add_new_user', {message: 'Passwords are not matching'});
     }
-    userQuery((err, data) => {
+    getUserDetails((err, data) => {
       if (err) { throw err; }
       if (data) {
         rep.view('add_new_user', {message: 'User already exists'});

@@ -1,4 +1,4 @@
-const viewReviews = require('../dbrequests/reviews-query.js').byUser;
+const viewReviews = require('../dbrequests/getReviews.js').byUser;
 const userQuery = require('../dbrequests/getUserDetails.js').byUserId;
 
 const userProfileHandler = (req, rep) => {
