@@ -16,7 +16,7 @@ module.exports = (cb, resource_id, user_id, rating, review_content, status) => {
     NOW(),
     1,
     $3,
-    $4);`, [review_content, rating, resource_id, user_id], (err, data) => {
+    $4)`, [review_content, rating, resource_id, user_id], (err, data) => {
       (err ? cb(err) : cb(null, null));
     });
 };
