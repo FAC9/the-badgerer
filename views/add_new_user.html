@@ -1,0 +1,25 @@
+{{!< layout/default}}
+<nav class='nav'>{{> login_header}}</nav>
+<h3 class='login-warning'>{{message}}</h3>
+<form class="edit-form" method="post" action="/newuser">
+  <label class="edit-form__text-label" for="username">Review: </label>
+  <textarea class="edit-form__text" id="username" name="username"></textarea><br>
+    <label class="edit-form__text-label" for="password">Password: </label>
+      <textarea class="edit-form__text" id="password" name="password"></textarea><br>
+      <label class="edit-form__text-label"  for="rpassword">Repeat your password: </label>
+        <textarea class="edit-form__text"  id="rpassword" name="rpassword"></textarea><br>
+        <label class="edit-form__text-label" for="email">Email address: </label>
+          <textarea class="edit-form__text" id="email" name="email"></textarea><br>
+  <label class="edit-form__avatar" for="avatar">Choose your avatar: </label> <br>
+  <img class='avatar-option' src="images/badger1.jpg" alt="badger1" />
+  <img class='avatar-option' src="images/badger2.jpg" alt="badger2" />
+  <img class='avatar-option' src="images/badger3.jpg" alt="badger3" />
+  <img class='avatar-option' src="images/badger4.jpg" alt="badger4" />
+    <select class="edit-form__avatar-select" id="avatar" name="avatar">
+      <option class="edit-form__avatar-option" value="images/badger1.jpg">1</option>
+      <option class="edit-form__avatar-option" value="images/badger1.jpg">2</option>
+      <option class="edit-form__avatar-option" value='images/badger1.jpg'>3</option>
+      <option class="edit-form__avatar-option" value='images/badger1.jpg'>4</option>
+    </select><br>
+  <input class="edit-form__submit" type="submit" />
+</form>

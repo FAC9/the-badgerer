@@ -6,6 +6,8 @@ const userProfileHandler = require('./handlers/userProfile.js');
 const addReviewHandler = require('./handlers/addReviewHandler.js');
 const editHandler = require('./handlers/editHandler.js');
 const deleteReviewHandler = require('./handlers/deleteReviewHandler.js');
+const newUserHandler = require('./handlers/newUserHandler.js');
+
 const file = {
   method: 'GET',
   path: '/{path*}',
@@ -32,6 +34,14 @@ const logout = {
       request.cookieAuth.clear();
       return reply.redirect('/');
     }
+  }
+};
+
+const newUser = {
+  method: ['GET', 'POST'],
+  path: '/newuser',
+  config: {
+    handler: newUserHandler
   }
 };
 
@@ -129,5 +139,6 @@ module.exports = [
   deleteReview,
   edit,
   file,
-  userProfile
+  userProfile,
+  newUser
 ];
