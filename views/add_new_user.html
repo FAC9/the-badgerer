@@ -1,25 +1,32 @@
 {{!< layout/default}}
 <nav class='nav'>{{> new_user_header}}</nav>
 <h3 class='login-warning'>{{message}}</h3>
-<form class="edit-form" method="post" action="/newuser">
-  <label class="edit-form__text-label" for="username">Review: </label>
-  <textarea class="edit-form__text" id="username" name="username"></textarea><br>
-  <label class="edit-form__text-label" for="password">Password: </label>
-  <textarea class="edit-form__text" id="password" name="password"></textarea><br>
-  <label class="edit-form__text-label"  for="rpassword">Repeat your password: </label>
-  <textarea class="edit-form__text"  id="rpassword" name="rpassword"></textarea><br>
-  <label class="edit-form__text-label" for="email">Email address: </label>
-  <textarea class="edit-form__text" id="email" name="email"></textarea><br>
-  <label class="edit-form__avatar" for="avatar">Choose your avatar: </label> <br>
-  <img class='avatar-option' src="images/badger1.jpg" alt="badger1" />
-  <img class='avatar-option' src="images/badger2.jpg" alt="badger2" />
-  <img class='avatar-option' src="images/badger3.jpg" alt="badger3" />
-  <img class='avatar-option' src="images/badger4.jpg" alt="badger4" />
-  <select class="edit-form__avatar-select" id="avatar" name="avatar">
-    <option class="edit-form__avatar-option" value="images/badger1.jpg">1</option>
-    <option class="edit-form__avatar-option" value="images/badger1.jpg">2</option>
-    <option class="edit-form__avatar-option" value='images/badger1.jpg'>3</option>
-    <option class="edit-form__avatar-option" value='images/badger1.jpg'>4</option>
+<form class="form" method="post" action="/newuser">
+  <label class="form__text-label" for="username">User: </label>
+    <input type="text" class="form__input" id="username" name="username"></input>
+
+  <label class="form__text-label" for="password">Password: </label>
+    <input type="password" class="form__input" id="password" name="password"></input>
+
+  <label class="form__text-label"  for="rpassword">Repeat your password: </label>
+    <input type="password" class="form__input"  id="rpassword" name="rpassword"></input>
+
+  <label class="form__text-label" for="email">Email address: </label>
+    <input type="email" class="form__input" id="email" name="email"></input>
+
+  <label class="form__avatar-label">Choose your avatar: </label>
+    <div class="form__avatar-pic-container">
+      <div class='form__avatar-pic' style="background-image: url(images/badger1.jpg)" alt="badger1">1</div>
+      <div class='form__avatar-pic' style="background-image: url(images/badger2.jpg)" alt="badger2">2</div>
+      <div class='form__avatar-pic' style="background-image: url(images/badger3.jpg)" alt="badger3">3</div>
+      <div class='form__avatar-pic' style="background-image: url(images/badger4.jpg)" alt="badger4">4</div>
+    </div>
+
+  <select class="form__avatar-select" id="avatar" name="avatar">
+    <option class="form__avatar-option" value="images/badger1.jpg">1</option>
+    <option class="form__avatar-option" value="images/badger2.jpg">2</option>
+    <option class="form__avatar-option" value='images/badger3.jpg'>3</option>
+    <option class="form__avatar-option" value='images/badger4.jpg'>4</option>
   </select><br>
-  <input class="edit-form__submit" type="submit" />
+  <input class="form__submit" type="submit" />
 </form>
