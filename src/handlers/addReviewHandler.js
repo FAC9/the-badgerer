@@ -1,4 +1,4 @@
-const addReviewSql = require('../dbrequests/addreview.js');
+const addReviewSql = require('../dbrequests/addReview.js');
 
 const addReviewHandler = (req, rep) => {
   var user_id;
