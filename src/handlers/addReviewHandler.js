@@ -12,10 +12,7 @@ const addReviewHandler = (req, rep) => {
   const status = 1;
 
   Reviews((err, data) => {
-//    let obj = {};
     if (err) throw err;
-//    obj.reviews = data;
-//    rep.view('home', obj); // new template for viwing reviews of resource?
   }, resource_id, user_id, rating, review_content, status);
   rep.redirect(`/resource/${resource_id}`);
 };
