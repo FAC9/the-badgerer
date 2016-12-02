@@ -16,6 +16,9 @@ Description: A platform for writing and sharing reviews of coding resources.
 - Navigate to http://localhost:8080/ in your browser
 - View live [here](http://the-badgerer.herokuapp.com/)
 
+FAC9!
+We took the liberty of creating an account for all of you. Your username is your GitHub handle (exactly as it is on GitHub, including capital letters). Ask us for your password :)
+
 ## User stories:
 
 As a curious learned FAC9 badger...
