@@ -16,7 +16,7 @@ signup_date) => {
     $2,
     $3,
     $4,
-    NOW()
+    CURRENT_DATE
     );`, [username, password, user_image_url, email], (err, data) => {
       (err ? cb(err) : cb(null, null));
     });

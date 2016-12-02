@@ -11,11 +11,11 @@ const userProfile = (req, rep) => {
     if (err) { throw err; }
     let obj = {};
     obj.reviews = data;
-    obj.reviews = obj.reviews.map((x) => {
-      x.modified_date = x.modified_date.toDateString();
-      x.creation_date = x.creation_date.toDateString();
-      return x;
-    });
+    // obj.reviews = obj.reviews.map((x) => {
+    //   x.modified_date = x.modified_date.toDateString();
+    //   x.creation_date = x.creation_date.toDateString();
+    //   return x;
+    // });
     if (req.auth.isAuthenticated) {
       obj.current_user = req.auth.credentials.current_user;
       obj.current_user_id = req.auth.credentials.current_user_id;

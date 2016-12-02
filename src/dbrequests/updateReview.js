@@ -3,7 +3,7 @@ const dbConn = require('../dbconnection.js');
 module.exports = (cb, reviewId, formcontent) => {
   dbConn.query(`UPDATE reviews SET
       review_content  = $1,
-      modified_date  =  NOW(),
+      modified_date  =  CURRENT_DATE ,
       rating  = $2
     WHERE review_id  = $3;`, [formcontent.review_content, formcontent.rating, reviewId], (err) => {
       if (err) cb(err);
