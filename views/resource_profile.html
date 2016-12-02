@@ -8,20 +8,20 @@
   <div class='reviews-container'>{{> reviews fromResourceProfile=true}}</div>
   <a class="back-to-resources" href="/resources" target="blank" title="back to resources">Back To Resources</a>
   {{#if loggedIn}}
-    <form class="form" method="POST" action="/addreview/{{resource_id}}">
-      <label class="form__text-label" for="review_content">Your Review: </label>
-        <textarea class="form__text" id="review_content" name="review_content"></textarea>
-      <label class="form__rating-label" for="rating">Rating: </label>
-        <select class="form__rating-select" id="rating" name="rating">
-          <option class="form__rating-option" value="1">1</option>
-          <option class="form__rating-option" value="2">2</option>
-          <option class="form__rating-option" value="3">3</option>
-          <option class="form__rating-option" value="4">4</option>
-          <option class="form__rating-option" value="5">5</option>
-        </select>
-      <input class="form__submit" type="submit" />
-    </form>
+  <form class="form" method="POST" action="/addreview/{{resource_id}}">
+    <label class="form__text-label" for="review_content">Your Review: </label>
+    <textarea class="form__text" id="review_content" name="review_content"></textarea>
+    <label class="form__rating-label" for="rating">Rating: </label>
+    <select class="form__rating-select" id="rating" name="rating">
+      <option class="form__rating-option" value="1">1</option>
+      <option class="form__rating-option" value="2">2</option>
+      <option class="form__rating-option" value="3">3</option>
+      <option class="form__rating-option" value="4">4</option>
+      <option class="form__rating-option" value="5">5</option>
+    </select>
+    <input class="form__submit" type="submit" />
+  </form>
   {{else}}
-    <h4>Log in to submit a review</h4>
+  <h4>Log in to submit a review</h4>
   {{/if}}
 </div>
