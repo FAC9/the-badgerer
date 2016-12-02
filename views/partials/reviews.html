@@ -1,4 +1,5 @@
 <div class="review-container">
+  {{#if reviews}}
   {{#each reviews}}
   <ul class="review">
     {{#if ../fromUserProfile }}
@@ -21,4 +22,7 @@
     {{/if}}
   </ul>
   {{/each}}
+  {{else}}
+  <h2>This resource doesn't have any reviews yet. Be the first to leave a review!</h2>
+  {{/if}}
 </div>
