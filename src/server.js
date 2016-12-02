@@ -1,5 +1,6 @@
 const Hapi = require('hapi');
 const CookieAuth = require('hapi-auth-cookie');
+const hapiContextCredentials = require('hapi-context-credentials');
 const Vision = require('vision');
 const Inert = require('inert');
 const Routes = require('./routes.js');
@@ -27,7 +28,7 @@ server.connection({
   }
 });
 
-server.register([Vision, Inert, CookieAuth], (err) => {
+server.register([Vision, Inert, CookieAuth, hapiContextCredentials], (err) => {
   if (err) { throw err; }
   server.views({
     engines: {

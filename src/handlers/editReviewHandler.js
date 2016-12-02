@@ -8,7 +8,6 @@ const editHandler = (req, rep) => {
   if (req.method === 'get' && req.auth.isAuthenticated) {
     reviewId = req.params.review_id;
     userId = req.auth.credentials.current_user_id;
-    console.log(reviewId, userId);
     userCanEdit((err, data) => {
       if (err) throw err;
       if (data) {
@@ -22,7 +21,6 @@ const editHandler = (req, rep) => {
     reviewId = req.params.review_id;
     formContent = req.payload;
     updateReview((err, resourceId) => {
-      // console.log(resourceId);
       if (err) throw err;
       if (resourceId) {
         rep.redirect(`/resource/${resourceId}`);

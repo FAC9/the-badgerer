@@ -3,14 +3,9 @@ const resourceQuery = require('../dbrequests/getResources.js').oneResource;
 
 const resourceProfileHandler = (req, rep) => {
   let resourceId = req.params.num;
-  let currentUser = 0;
   let obj = {};
-  if (req.auth.isAuthenticated) {
-    obj.current_user = req.auth.credentials.current_user;
-    obj.current_user_id = req.auth.credentials.current_user_id;
-    currentUser = obj.current_user_id;
-    obj.loggedIn = true;
-  }
+  let currentUser = req.auth.isAuthenticated ? req.auth.credentials.current_user_id : 0;
+  obj.credentials = req.auth.credentials;
   viewReviews((err, data) => {
     if (err) { throw err; }
     obj.reviews = data;

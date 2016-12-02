@@ -3,13 +3,8 @@ const latest5Reviews = require('../dbrequests/getReviews.js').latest5;
 
 const homeHandler = (req, rep) => {
   let obj = {};
-  let currentUser = 0;
-  if (req.auth.isAuthenticated) {
-    obj.current_user = req.auth.credentials.current_user;
-    obj.current_user_id = req.auth.credentials.current_user_id;
-    currentUser = obj.current_user_id;
-    obj.loggedIn = true;
-  }
+  let currentUser = req.auth.isAuthenticated ? req.auth.credentials.current_user_id : 0;
+  obj.credentials = req.auth.credentials;
   top5resources((err, data) => {
     if (err) throw err;
     obj.resources = data;

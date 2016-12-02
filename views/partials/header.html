@@ -8,8 +8,8 @@
 </div>
 
 <div class='nav__controls nav__item-container'>
-  {{#if loggedIn}}
-  <a class="nav__username nav__item" href="/user/{{current_user_id}}">{{current_user}}</a>
+  {{#if credentials.current_user}}
+  <a class="nav__username nav__item" href="/user/{{credentials.current_user_id}}">{{credentials.current_user}}</a>
   <a class="nav__logout nav__item" href="/logout">Logout</a>
   {{else}}
   <a class="nav__login nav__item" href="/login">Login</a>

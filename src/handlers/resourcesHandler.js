@@ -5,11 +5,6 @@ const resourcesHandler = (req, rep) => {
     let obj = {};
     if (err) throw err;
     obj.resources = data;
-    if (req.auth.isAuthenticated) {
-      obj.current_user = req.auth.credentials.current_user;
-      obj.current_user_id = req.auth.credentials.current_user_id;
-      obj.loggedIn = true;
-    }
     rep.view('resources_list', obj);
   });
 };
