@@ -12,12 +12,21 @@ const addReviewHandler = (req, rep) => {
   const status = 1;
 
   Reviews((err, data) => {
-//    let obj = {};
     if (err) throw err;
-//    obj.reviews = data;
-//    rep.view('home', obj); // new template for viwing reviews of resource?
   }, resource_id, user_id, rating, review_content, status);
   rep.redirect(`/resource/${resource_id}`);
 };
 
-module.exports = addReviewHandler;
+const addReview = {
+  method: 'POST',
+  path: '/addreview/{resource_id}',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: addReviewHandler
+  }
+};
+
+module.exports = addReview;

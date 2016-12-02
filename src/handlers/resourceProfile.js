@@ -1,7 +1,7 @@
 const viewReviews = require('../dbrequests/reviews-query.js').byResources;
 const resourceQuery = require('../dbrequests/resources_query.js').oneResource;
 
-const resourceProfile = (req, rep) => {
+const resourceProfileHandler = (req, rep) => {
   let resource_id = req.params.num;
   let currentUser = 0;
   let obj = {};
@@ -25,6 +25,18 @@ const resourceProfile = (req, rep) => {
     }, resource_id);
   },
   resource_id, currentUser);
+};
+
+const resourceProfile = {
+  method: 'GET',
+  path: '/resource/{num}',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: resourceProfileHandler
+  }
 };
 
 module.exports = resourceProfile;
