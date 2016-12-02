@@ -1,4 +1,4 @@
-const newUser = require('../dbrequests/newUser.js');
+const newUserSql = require('../dbrequests/newUser.js');
 const Bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
@@ -28,24 +28,21 @@ const newUserHandler = (req, rep) => {
         if (err) {
           return console.error(err);
         }
-        newUser((err, data) => {
+        newUserSql((err, data) => {
           if (err) throw err;
           rep.redirect('/login');
         }, username, hashedPassword, avatar, email);
       });
     });
-  /*  reviewId = req.params.review_id;
-    formContent = req.payload;
-    updateReview((err, resourceId) => {
-      // console.log(resourceId);
-      if (err) throw err;
-      if (resourceId) {
-        rep.redirect(`/resource/${resourceId}`);
-      } else {
-        req.redirect('/');
-      }
-    }, reviewId, formContent); */
   }
 };
 
-module.exports = newUserHandler;
+const newUser = {
+  method: ['GET', 'POST'],
+  path: '/newuser',
+  config: {
+    handler: newUserHandler
+  }
+};
+
+module.exports = newUser;

@@ -27,4 +27,16 @@ const homeHandler = (req, rep) => {
   }); // end of callback
 };
 
-module.exports = homeHandler;
+const home = {
+  method: 'GET',
+  path: '/',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: homeHandler
+  }
+};
+
+module.exports = home;

@@ -20,4 +20,16 @@ const addReviewHandler = (req, rep) => {
   rep.redirect(`/resource/${resource_id}`);
 };
 
-module.exports = addReviewHandler;
+const addReview = {
+  method: 'POST',
+  path: '/addreview/{resource_id}',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'base'
+    },
+    handler: addReviewHandler
+  }
+};
+
+module.exports = addReview;
