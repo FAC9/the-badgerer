@@ -1,4 +1,4 @@
-const sqlLogin = require('../dbrequests/getUserByUsername.js.js');
+const sqlLogin = require('../dbrequests/getUserByUsername.js');
 const Bcrypt = require('bcrypt');
 
 const loginHandler = function (request, reply) {
