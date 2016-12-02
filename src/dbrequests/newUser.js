@@ -2,9 +2,9 @@ const dbConn = require('../dbconnection.js');
 
 module.exports = (cb, username,
 password,
-user_image_url,
+userImageUrl,
 email,
-signup_date) => {
+signupDate) => {
   dbConn.query(`INSERT INTO  users(
     username,
     password,
@@ -17,7 +17,7 @@ signup_date) => {
     $3,
     $4,
     CURRENT_DATE
-    );`, [username, password, user_image_url, email], (err, data) => {
-      (err ? cb(err) : cb(null, null));
-    });
+  );`, [username, password, userImageUrl, email], (err, data) => {
+    (err ? cb(err) : cb(null, null));
+  });
 };
