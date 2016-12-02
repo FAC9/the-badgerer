@@ -3,16 +3,16 @@
 <h3 class='login-warning'>{{message}}</h3>
 <form class="form" method="post" action="/newuser">
   <label class="form__text-label" for="username">User: </label>
-    <input type="text" class="form__input" id="username" name="username"></input>
+    <input type="text" class="form__input" id="username" name="username" pattern="^[A-Za-z0-9]{1,25}$" placeholder="1-25 alphanumeric charcters only (no whitespace)"></input>
 
   <label class="form__text-label" for="password">Password: </label>
-    <input type="password" class="form__input" id="password" name="password"></input>
+    <input type="password" class="form__input" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="8+ characters including 1 letter, 1 number, 1 capital letter"></input>
 
   <label class="form__text-label"  for="rpassword">Repeat your password: </label>
-    <input type="password" class="form__input"  id="rpassword" name="rpassword"></input>
+    <input type="password" class="form__input"  id="rpassword" name="rpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="passwords must match"></input>
 
   <label class="form__text-label" for="email">Email address: </label>
-    <input type="email" class="form__input" id="email" name="email"></input>
+    <input type="email" class="form__input" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="valid email only"></input>
 
   <label class="form__avatar-label">Choose your avatar: </label>
     <div class="form__avatar-pic-container">
