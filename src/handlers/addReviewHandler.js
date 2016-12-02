@@ -1,4 +1,4 @@
-const Reviews = require('../dbrequests/addreview.js');
+const addReviewSql = require('../dbrequests/addreview.js');
 
 const addReviewHandler = (req, rep) => {
   var user_id;
@@ -11,7 +11,7 @@ const addReviewHandler = (req, rep) => {
   const review_content = req.payload.review_content;
   const status = 1;
 
-  Reviews((err, data) => {
+  addReviewSql((err, data) => {
     if (err) throw err;
   }, resource_id, user_id, rating, review_content, status);
   rep.redirect(`/resource/${resource_id}`);
