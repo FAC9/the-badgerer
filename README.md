@@ -2,11 +2,11 @@
 
 ![Lovely Badger](public/images/badger-logo.png)
 
-Description: A platform for writing and sharing reviews of coding resources. 
+Description: A platform for writing and sharing reviews of coding resources.  
 
 ## Install Guide
 - Clone this repo and cd into it
-- Add ENV variables (shh, don't tell anyone them though)- 
+- Add ENV variables (shh, don't tell anyone them though)-
 - export postgres://wyszobbe:ePctrGaBUCZkYX5roORrRawzM99NNC6-@qdjjtnkv.db.elephantsql.com:5432/wyszobbe
 - export DB_MAX_CONNECTIONS = 2
 - Run npm install to install all dependencies
@@ -41,7 +41,7 @@ As a curious learned FAC9 badger...
 - /resources (list of resources)
 - /resource/{resource_id} (resource profile)
 - /login (to log in)
-- /logout (to log out) 
+- /logout (to log out)
 - /edit/{review_id} (available for when I want to edit one of my reviews)
 - /delete/{review_id} (available for when I want to delete one of my reviews)
 - /addreview/{resource_id} (available when I am logged in and submitting via resource profile)

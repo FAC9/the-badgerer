@@ -1,17 +1,17 @@
 {{!< layout/default}}
 <h1 class='edit-header'>Edit Review</h1>
 <h3 class='edit-subtitle'>{{resource_name}}</h3>
-<form class="edit-form" method="post" action="/edit/{{review_id}}">
-  <label class="edit-form__text-label" for="review_content">Review: </label>
-    <textarea class="edit-form__text" id="review_content" name="review_content">{{review_content}}</textarea>
-  <label class="edit-form__rating-label" for="rating">Rating: </label>
-    <select class="edit-form__rating-select" id="rating" name="rating">
-      <option class="edit-form__rating-option" value="1" {{#ifSelectedRating rating 1}}{{/ifSelectedRating}}>1</option>
-      <option class="edit-form__rating-option" value="2" {{#ifSelectedRating rating 2}}{{/ifSelectedRating}}>2</option>
-      <option class="edit-form__rating-option" value="3" {{#ifSelectedRating rating 3}}{{/ifSelectedRating}}>3</option>
-      <option class="edit-form__rating-option" value="4" {{#ifSelectedRating rating 4}}{{/ifSelectedRating}}>4</option>
-      <option class="edit-form__rating-option" value="5" {{#ifSelectedRating rating 5}}{{/ifSelectedRating}}>5</option>
+<form class="form" method="post" action="/edit/{{review_id}}">
+  <label class="form__text-label" for="review_content">Review: </label>
+    <textarea class="form__text" id="review_content" name="review_content">{{review_content}}</textarea>
+  <label class="form__rating-label" for="rating">Rating: </label>
+    <select class="form__rating-select" id="rating" name="rating">
+      <option class="form__rating-option" value="1" {{#ifSelectedRating rating 1}}{{/ifSelectedRating}}>1</option>
+      <option class="form__rating-option" value="2" {{#ifSelectedRating rating 2}}{{/ifSelectedRating}}>2</option>
+      <option class="form__rating-option" value="3" {{#ifSelectedRating rating 3}}{{/ifSelectedRating}}>3</option>
+      <option class="form__rating-option" value="4" {{#ifSelectedRating rating 4}}{{/ifSelectedRating}}>4</option>
+      <option class="form__rating-option" value="5" {{#ifSelectedRating rating 5}}{{/ifSelectedRating}}>5</option>
     </select>
-  <input class="edit-form__submit" type="submit" />
+  <input class="form__submit" type="submit" />
 </form>
 <!-- <a class="edit-back" href="/user/{{user_id}}">Back</a> -->

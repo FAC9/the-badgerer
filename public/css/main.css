@@ -9,6 +9,19 @@ html {
 .avatar-option {
   height: 150px;
 }
+ul {
+    list-style: none;
+}
+
+a {
+    color: darkred;
+}
+
+a:visited {
+    color: salmon;
+}
+
+
 /* Nav */
 .nav {
   display: flex;
@@ -30,7 +43,251 @@ html {
   height: 4rem;
 }
 
+/* Home */
 
+.home-subheader {
+    text-align: center;
+    margin: 2rem;
+}
+
+/* Resource Table */
+
+.resources-container {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.resources-link {
+    display: block;
+    text-align: center;
+    margin: 1rem;
+}
+
+.resource-table {
+    border: 1px dotted black;
+    margin: 0 auto;
+}
+
+.resource-table__header {
+    padding: 1rem 0;
+    border-bottom: 1px solid black;
+    width: 25%;
+}
+
+.resource-table__cell {
+    padding: 0.5rem 0;
+}
+
+/* Reviews*/
+
+.review-header {
+    text-align: center;
+}
+
+.review-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.review {
+    width: 16rem;
+    padding: 1rem;
+    border: 1px solid lightgray;
+    text-align: left;
+}
+
+.review__resource {
+    font-size: 1.5rem;
+    border-bottom: 1px solid grey;
+}
+
+/* User Profile */
+
+.profile {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.profile__image {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.profile__header {
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+/* Resource Profile */
+.resource-table {
+    text-align: center;
+}
+
+.resource-profile {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.resource-profile__image {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.resource-profile__header {
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+.resource-header {
+    text-align: center;
+}
+
+/* form */
+
+.form {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 1rem auto;
+}
+
+.form__text-label {
+    display: block;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.form__text {
+    display: block;
+    width: 75%;
+    min-width: 300px;
+    margin: 0 auto;
+    resize: horizontal;
+    height: 120px;
+}
+
+.form__rating-label {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 1rem;
+}
+
+.form__rating-select {
+    display: block;
+    margin: 0 auto;
+    width: 3rem;
+    padding: 0;
+    text-align: center;
+}
+
+.form__submit {
+    display: block;
+    margin: 1rem auto;
+    width: 6rem;
+    height: 2rem;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: .3rem;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.form__submit:hover {
+    border: 2px solid black;
+    background: white;
+    color: black;
+}
+
+/* login */
+
+.login-warning {
+    text-align: center;
+}
+
+.login-form {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 250px;
+}
+
+.login-form__username-label,
+.login-form__username-input {
+    display: inline-block;
+    width: 45%;
+    margin: .3rem 0;
+}
+
+.login-form__password-label,
+.login-form__password-input {
+    display: inline-block;
+    width: 45%;
+    margin: .3rem 0;
+}
+.login-form__submit {
+    display: block;
+    margin: 1rem auto;
+    width: 6rem;
+    height: 2rem;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: .3rem;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.login-form__submit:hover {
+    border: 2px solid black;
+    background: white;
+    color: black;
+}
+
+.login-back {
+    display: block;
+    text-align: center;
+}
+/* Edit */
+
+.edit-header {
+    text-align: center;
+}
+
+.edit-header {
+    text-align: center;
+}
+
+.edit-subtitle {
+    text-align: center;
+}
+
+
+/* footer */
+
+.footer {
+    text-align: center;
+    font-size: .8rem;
+    margin: 2rem;
+}
 @media screen and (max-width: 700px) {
 
   html {
@@ -39,5 +296,9 @@ html {
 
   .header-container-title {
     display: none;
+  }
+
+  .resource-table__cell {
+      padding: .3rem 0;
   }
 }
