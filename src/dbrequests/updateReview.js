@@ -5,7 +5,7 @@ module.exports = (cb, reviewId, formcontent) => {
       review_content  = $1,
       modified_date  =  NOW(),
       rating  = $2
-    WHERE review_id  = $3;`, [formcontent.review_content, formcontent.rating, reviewId], (err) => {
+    WHERE review_id  = $3`, [formcontent.review_content, formcontent.rating, reviewId], (err) => {
       if (err) cb(err);
       dbConn.query(`SELECT resource_id FROM reviews WHERE review_id = $1`, [reviewId], (err, data) => {
         if (err) cb(err);

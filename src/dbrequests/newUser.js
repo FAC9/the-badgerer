@@ -17,7 +17,7 @@ signup_date) => {
     $3,
     $4,
     NOW()
-    );`, [username, password, user_image_url, email], (err, data) => {
+    )`, [username, password, user_image_url, email], (err, data) => {
       (err ? cb(err) : cb(null, null));
     });
 };
